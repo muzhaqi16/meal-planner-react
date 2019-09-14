@@ -10,7 +10,7 @@ export default class TextInput extends React.Component {
         return (
             <div className="input">
                 <label for={this.props.inputId}>{this.props.label}</label>
-                <input type={this.props.type} name={this.props.inputId} id={this.props.inputId}></input>
+                <input type={this.props.type} placeholder={this.props.placeholder} name={this.props.inputId} id={this.props.inputId}></input>
             </div>
         )
     }
@@ -18,10 +18,12 @@ export default class TextInput extends React.Component {
 TextInput.propTypes = {
     label: PropTypes.string,
     inputId: PropTypes.string,
-    type: PropTypes.string
+    type: PropTypes.string,
+    placeholder: PropTypes.string
 }
 TextInput.defaultProps = {
     label: 'Label',
     inputId: 'defaultInput',
-    type: 'text'
+    type: 'text',
+    placeholder: ''
 }
