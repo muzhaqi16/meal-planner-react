@@ -1,5 +1,5 @@
 .day {
-    background-color: bisque;
+    background-color: white;
     border-right: 1px solid grey;
     width: 100%;
     text-align: center;
@@ -9,19 +9,23 @@
     flex-direction: column;
     justify-content: flex-start;
 }
-.day li{
+
+.day>li {
     box-sizing: border-box;
-    
-}
-.meal-time {
-    width: 100%;
+
 }
 
-.meal-time a {
+.meal-time>a {
+    color: #d9534f;
+    ;
+}
+
+li.meal-time {
+    width: 100%;
+    border-bottom: 1px solid grey;
+}
+
+.meal-time>a {
     display: block;
     padding: 5px;
-}
-
-.lunch {
-    background-color: blanchedalmond;
 }

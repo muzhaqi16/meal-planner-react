@@ -25,10 +25,15 @@ a {
     text-align: left;
 }
 
+.input>h2 {
+    text-align: center;
+}
+
 .days-of-week {
     width: 100%;
-    height: 100vh;
-    background-color: aquamarine;
+    background-color: #e66b6b;
+    color: white;
+    padding-right: 10px;
 }
 
 .timeline {

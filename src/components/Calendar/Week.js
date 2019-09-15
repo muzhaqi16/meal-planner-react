@@ -13,7 +13,7 @@ export default class Week extends React.Component {
                 <div className="week">
                     <ul>
                         <li className="day-name" id="meal-header">
-                            <span>&nbsp;</span>
+                            <span className="no-style">&nbsp;</span>
                             <p>&nbsp;</p>
                             <ul className="meal-periods">
                                 <li className="meal-time header">
