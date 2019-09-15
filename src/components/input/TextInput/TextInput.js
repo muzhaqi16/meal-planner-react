@@ -2,10 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './TextInput.css'
 export default class TextInput extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         return (
             <div className="input">

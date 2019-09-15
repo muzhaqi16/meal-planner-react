@@ -1,6 +1,8 @@
 import React from 'react';
 import Week from './Week';
 import './Calendar.css'
+import TextInput from '../input/TextInput/TextInput'
+import Buttton from '../input/Button/Button'
 
 export default class Calendar extends React.Component {
     render() {
@@ -8,30 +10,22 @@ export default class Calendar extends React.Component {
             <div className="calendar">
                 <div className="timeline">
                     <div className="input">
+                        <h2>Add a meal to your calendar</h2>
                         <form class="food-log-form">
                             <div>
-                                <label for="date">Date</label>
-                                <input type="date" required="" id="date" value="2019-09-15" />
+                                <TextInput label="Select Date" type="date" />
                             </div>
                             <div>
-                                <label for="food">Food</label>
-                                <input type="text" required="" id="food" />
+                                <TextInput label="Food" placeholder="Enter meal name..." />
                             </div>
                             <div>
-                                <label for="food">Meal time</label>
-                                <select>
-                                    <option value="breakfast">Breakfast</option>
-                                    <option value="lunch">Lunch</option>
-                                    <option value="dinner">Dinner</option>
-                                </select>
+                                <TextInput label="Time" placeholder="breakfast, lunch or dinner" />
                             </div>
                             <div>
-                                <label for="calories">Calories</label>
-                                <input type="number" required="" id="calories" />
+                                <TextInput label="Calories" />
                             </div>
                             <div>
-                                <label>&nbsp;</label>
-                                <input type="submit" value="Add Meal" class="button" />
+                                <Buttton text="Add Meal" />
                             </div>
                         </form>
                     </div>

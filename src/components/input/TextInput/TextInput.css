@@ -1,14 +1,16 @@
-.input{
+.input {
     font-size: 16px;
 }
-label{
+
+.input>label {
     display: inline-block;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 1.5;
     color: #333;
 }
-input{
+
+.input>input {
     font-family: "Roboto", sans-serif;
     background: #f2f2f2;
     width: 100%;

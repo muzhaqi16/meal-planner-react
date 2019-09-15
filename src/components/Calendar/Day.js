@@ -11,19 +11,16 @@ export default class Day extends React.Component {
                         <p><em className="meal-name">{this.props.data.breakfast}</em></p>
 
                     </a>
-                    <button type="button" onClick={() => alert(this.props.data.date)}>Add a meal</button>
                 </li>
                 <li className="meal-time lunch">
                     <a href="/">
                         <em className="meal-name">{this.props.data.lunch}</em>
                     </a>
-                    <button type="button" onClick={() => alert(this.props.data.date)}>Add a meal</button>
                 </li>
                 <li className="meal-time dinner">
                     <a href="/">
                         <em className="meal-name">{this.props.data.dinner}</em>
                     </a>
-                    <button type="button" onClick={() => alert(this.props.data.date)}>Add a meal</button>
                 </li>
             </ul>
         )

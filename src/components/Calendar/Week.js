@@ -16,9 +16,15 @@ export default class Week extends React.Component {
                             <span>&nbsp;</span>
                             <p>&nbsp;</p>
                             <ul className="meal-periods">
-                                <li className="meal-time header"><span>B</span></li>
-                                <li className="meal-time header"><span>L</span></li>
-                                <li className="meal-time header"><span>D</span></li>
+                                <li className="meal-time header">
+                                    <p>Breakfast</p>
+                                </li>
+                                <li className="meal-time header">
+                                    <p>Lunch</p>
+                                </li>
+                                <li className="meal-time header">
+                                    <p>Dinner</p>
+                                </li>
                             </ul>
                         </li>
                         <li className="day-name">
