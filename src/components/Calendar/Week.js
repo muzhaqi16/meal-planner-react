@@ -14,9 +14,9 @@ export default class Week extends React.Component {
                     <ul>
                         <li className="day-name" id="meal-header"><span>&nbsp;</span>
                             <ul className="meal-periods">
-                                <li className="meal-time header">Breakfast</li>
-                                <li className="meal-time header">Lunch</li>
-                                <li className="meal-time header">Diner</li>
+                                <li className="meal-time header"><span>B</span></li>
+                                <li className="meal-time header"><span>L</span></li>
+                                <li className="meal-time header"><span>D</span></li>
                             </ul>
                         </li>
                         <li className="day-name">

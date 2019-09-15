@@ -7,21 +7,19 @@ nav {
 
 .week ul{
     display: flex;
-    width: 100%;
-    box-sizing: border-box;
 }
 .day-name{
-    display: inline-block;
-    border-bottom: 1px solid grey;
-    background-color: blueviolet;
-    padding: 1px;
     font-size: 18px;
     flex: 1;
     text-align: center;
     text-transform: uppercase;
 }
+#meal-header{
+    flex: 0.1;
+    width: 10px;
+    position: relative;
+}
 .day-name span{
-    display: block;
     padding: 10px;
     font-size: 20px;
     letter-spacing: 5px;
@@ -36,14 +34,11 @@ nav {
     flex: 1;
     border-bottom: 1px solid;
 }
-li#meal-header{
-    width: 20px;
-    flex: 0.5;
+.meal-time span{
+    display: inline-block;
 }
-
 li.header{
-    position: relative;
-    transform: rotate(90deg);
     font-size: 24px;
-    left: -100px;
+    position: relative;
+    letter-spacing: 3px;
 }
