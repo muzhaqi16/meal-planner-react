@@ -5,39 +5,45 @@ nav {
     font-size: 20px;
 }
 
-.week ul{
+.week ul {
     display: flex;
 }
-.day-name{
+
+.day-name {
     font-size: 18px;
     flex: 1;
     text-align: center;
     text-transform: uppercase;
 }
-#meal-header{
+
+#meal-header {
     flex: 0.1;
     width: 10px;
     position: relative;
 }
-.day-name span{
-    padding: 10px;
+
+.day-name span {
     font-size: 20px;
-    letter-spacing: 5px;
 }
-.day-name ul{
+
+.day-name ul {
     display: flex;
-    height: 90vh;;
+    height: 90vh;
+    ;
     flex-direction: column;
 }
-.meal-time{
+
+.meal-time {
     align-self: flex-start;
     flex: 1;
     border-bottom: 1px solid;
 }
-.meal-time span{
+
+.meal-time span {
     display: inline-block;
 }
-li.header{
+
+li.header {
     font-size: 24px;
     position: relative;
     letter-spacing: 3px;
