@@ -1,0 +1,33 @@
+.day {
+    height: 100vh;
+    background-color: bisque;
+    border-right: 1px solid grey;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.day-name {
+    border-bottom: 1px solid grey;
+    padding: 5px;
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.meal-time {
+    width: 100%;
+    padding: 10px;
+}
+
+.meal-time a {
+    display: block;
+    padding: 5px;
+}
+
+.lunch {
+    background-color: blanchedalmond;
+}
