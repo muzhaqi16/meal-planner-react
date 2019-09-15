@@ -1,8 +1,49 @@
 nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 20px;
 }
 
-.week {
+.week ul{
     display: flex;
+    width: 100%;
+    box-sizing: border-box;
+}
+.day-name{
+    display: inline-block;
+    border-bottom: 1px solid grey;
+    background-color: blueviolet;
+    padding: 1px;
+    font-size: 18px;
+    flex: 1;
+    text-align: center;
+    text-transform: uppercase;
+}
+.day-name span{
+    display: block;
+    padding: 10px;
+    font-size: 20px;
+    letter-spacing: 5px;
+}
+.day-name ul{
+    display: flex;
+    height: 90vh;;
+    flex-direction: column;
+}
+.meal-time{
+    align-self: flex-start;
+    flex: 1;
+    border-bottom: 1px solid;
+}
+li#meal-header{
+    width: 20px;
+    flex: 0.5;
+}
+
+li.header{
+    position: relative;
+    transform: rotate(90deg);
+    font-size: 24px;
+    left: -100px;
 }

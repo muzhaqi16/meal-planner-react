@@ -5,25 +5,24 @@ export default class Day extends React.Component {
     render() {
         return (
             <ul className="day">
-                <li className="day-name">{this.props.day}</li>
                 <li className="meal-time breakfast">
-                    <a href="#">
+                    <a href="/">
                         <em className="meal-name">{this.props.meal}</em>
                     </a>
                 </li>
                 <li className="meal-time lunch">
-                    <a href="#">
+                    <a href="/">
                         <em className="meal-name">{this.props.meal}</em>
                     </a>
-                    <a href="#">
+                    <a href="/">
                         <em className="meal-name">{this.props.meal}</em>
                     </a>
-                    <a href="#">
+                    <a href="/">
                         <em className="meal-name">{this.props.meal}</em>
                     </a>
                 </li>
                 <li className="meal-time dinner">
-                    <a href="#">
+                    <a href="/">
                         <em className="meal-name">{this.props.meal}</em>
                     </a>
                 </li>

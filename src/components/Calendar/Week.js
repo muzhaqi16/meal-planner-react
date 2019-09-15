@@ -11,13 +11,31 @@ export default class Week extends React.Component {
                     <span> Next Week &rarr;</span>
                 </nav>
                 <div className="week">
-                    <Day day="Monday" meal="Ceaser Salad" />
-                    <Day day="Tuesday" />
-                    <Day day="Wednesday" />
-                    <Day day="Thursday" />
-                    <Day day="Friday" />
-                    <Day day="Saturday" />
-                    <Day day="Sunday" />
+                    <ul>
+                        <li className="day-name" id="meal-header"><span>&nbsp;</span>
+                            <ul className="meal-periods">
+                                <li className="meal-time header">Breakfast</li>
+                                <li className="meal-time header">Lunch</li>
+                                <li className="meal-time header">Diner</li>
+                            </ul>
+                        </li>
+                        <li className="day-name">
+                            <span>Mon</span>
+                            <Day />
+                        </li>
+                        <li className="day-name">
+                            <span>Tue </span><Day /></li>
+                        <li className="day-name">
+                            <span>Wed </span><Day /></li>
+                        <li className="day-name">
+                            <span>Thur </span><Day /></li>
+                        <li className="day-name">
+                            <span>Fri </span><Day /></li>
+                        <li className="day-name">
+                            <span>Sat </span><Day /></li>
+                        <li className="day-name">
+                            <span>Sun</span> <Day /></li>
+                    </ul>
                 </div>
             </div>
         )

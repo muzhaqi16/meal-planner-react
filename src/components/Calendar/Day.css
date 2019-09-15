@@ -1,26 +1,20 @@
 .day {
-    height: 100vh;
     background-color: bisque;
     border-right: 1px solid grey;
     width: 100%;
     text-align: center;
     display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
     flex-direction: column;
     justify-content: flex-start;
 }
-
-.day-name {
-    border-bottom: 1px solid grey;
-    padding: 5px;
-    font-size: 18px;
-    text-align: center;
-    text-transform: uppercase;
-    width: 100%;
+.day li{
+    box-sizing: border-box;
+    
 }
-
 .meal-time {
     width: 100%;
-    padding: 10px;
 }
 
 .meal-time a {
