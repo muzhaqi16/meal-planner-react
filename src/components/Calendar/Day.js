@@ -8,8 +8,7 @@ export default class Day extends React.Component {
             <ul className="day">
                 <li className="meal-time breakfast">
                     <a href="/">
-                        <p><em className="meal-name">{this.props.data.breakfast}</em></p>
-
+                        <em className="meal-name">{this.props.data.breakfast}</em>
                     </a>
                 </li>
                 <li className="meal-time lunch">

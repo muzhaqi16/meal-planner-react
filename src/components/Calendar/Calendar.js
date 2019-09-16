@@ -5,6 +5,9 @@ import TextInput from '../input/TextInput/TextInput'
 import Buttton from '../input/Button/Button'
 
 export default class Calendar extends React.Component {
+    handleAdd = () => {
+        alert('hello');
+    }
     render() {
         return (
             <div className="calendar">
@@ -25,7 +28,7 @@ export default class Calendar extends React.Component {
                                 <TextInput label="Calories" />
                             </div>
                             <div>
-                                <Buttton text="Add Meal" />
+                                <Buttton text="Add Meal" type='submit' onClick={this.handleAdd} />
                             </div>
                         </form>
                     </div>

@@ -12,20 +12,21 @@ nav {
 
 .day-name {
     font-size: 18px;
-    flex: 1;
+    flex: 1 1;
     text-align: center;
     text-transform: uppercase;
 }
-
-#meal-header {
-    flex: 0.2 0.2;
-    width: 20px;
-    background-color: #e66b6b;
+.day-name>p {
+    padding: 0;
+    margin: 0;
+}
+.day-name>ul {
+    height: 80vh;
+    flex-direction: column;
 }
 
 .day-name>span {
     font-size: 20px;
-    box-sizing: border-box;
     background-color: #428bca;
     border-radius: 50%;
     display: inline-block;
@@ -38,36 +39,22 @@ nav {
 span.no-style {
     background-color: transparent;
 }
-
-.day-name>ul {
-    display: flex;
-    height: 80vh;
-    box-sizing: border-box;
-    flex-direction: column;
-}
-
-.day-name>p {
-    padding: 0;
-    margin: 0;
-}
-
 .meal-time {
     align-self: flex-start;
-    flex: 1;
+    flex: 1 1;
     border-bottom: 1px solid;
+    box-sizing: border-box;
 }
 
-.meal-time>p {
-    transform: rotate(90deg);
-    padding: 0;
-    position: relative;
-    text-align: center;
-    top: 100px;
-    margin: 0;
+li#meal-header {
+    flex: 0.1 0.1;
+    background-color: #e66b6b;
+   
 }
-
 li.header {
     font-size: 24px;
-    position: relative;
     letter-spacing: 3px;
+}
+.header>a{
+    color: white;
 }

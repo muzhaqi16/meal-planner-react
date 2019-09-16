@@ -51,10 +51,13 @@ export default class Planner extends React.Component {
             }
         }
     }
+    addMeal = (day, time) => {
+
+    }
     render() {
         return (
             <>
-                <Calendar data={this.state.data} />
+                <Calendar data={this.state.data} add={this.addMeal} />
             </>
         )
     }

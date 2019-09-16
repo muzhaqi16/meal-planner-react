@@ -12,20 +12,19 @@
 
 .day>li {
     box-sizing: border-box;
-
 }
 
 .meal-time>a {
     color: #d9534f;
-    ;
 }
 
 li.meal-time {
     width: 100%;
     border-bottom: 1px solid grey;
 }
-
 .meal-time>a {
     display: block;
-    padding: 5px;
+}
+.meal-name{
+    text-transform: capitalize;
 }

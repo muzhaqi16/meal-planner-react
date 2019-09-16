@@ -1,34 +1,31 @@
 * {
     box-sizing: border-box;
 }
-
-li {
-    list-style: none;
-    display: inline-block;
+a {
+    text-decoration: none;
 }
-
 ul {
     margin: 0;
     padding: 0;
 }
-
-a {
-    text-decoration: none;
+li {
+    list-style: none;
+    display: inline-block;
 }
-
 .calendar {
     height: 100vh;
 }
-
+.timeline {
+    display: flex;
+    height: 100vh;
+}
 .input {
     padding: 10px;
     text-align: left;
 }
-
 .input>h2 {
     text-align: center;
 }
-
 .days-of-week {
     width: 100%;
     background-color: #e66b6b;
@@ -36,7 +33,3 @@ a {
     padding-right: 10px;
 }
 
-.timeline {
-    display: flex;
-    height: 100vh;
-}
