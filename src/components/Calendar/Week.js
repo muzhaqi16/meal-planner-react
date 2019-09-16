@@ -17,13 +17,13 @@ export default class Week extends React.Component {
                             <p>&nbsp;</p>
                             <ul className="meal-periods">
                                 <li className="meal-time header">
-                                    <a>B</a>
+                                    <a href="/">B</a>
                                 </li>
                                 <li className="meal-time header">
-                                    <a>L</a>
+                                    <a href="/">L</a>
                                 </li>
                                 <li className="meal-time header">
-                                    <a>D</a>
+                                    <a href="/">D</a>
                                 </li>
                             </ul>
                         </li>

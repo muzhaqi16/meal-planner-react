@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import './Day.css'
 export default class Day extends React.Component {
     render() {
-        console.log(this.props.data)
+        console.log(this.props.data.breakfast);
         return (
             <ul className="day">
                 <li className="meal-time breakfast">
                     <a href="/">
-                        <em className="meal-name">{this.props.data.breakfast}</em>
+                        {this.props.data.breakfast.map((item => <em className="meal-name">{item}</em>))}
                     </a>
                 </li>
                 <li className="meal-time lunch">

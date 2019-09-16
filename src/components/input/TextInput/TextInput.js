@@ -5,21 +5,21 @@ export default class TextInput extends React.Component {
     render() {
         return (
             <div className="input">
-                <label for={this.props.inputId}>{this.props.label}</label>
-                <input type={this.props.type} placeholder={this.props.placeholder} name={this.props.inputId} id={this.props.inputId}></input>
+                <label htmlFor={this.props.inputId}>{this.props.label}</label>
+                <input type={this.props.type} placeholder={this.props.placeholder} name={this.props.inputId} id={this.props.id}></input>
             </div>
         )
     }
 }
 TextInput.propTypes = {
     label: PropTypes.string,
-    inputId: PropTypes.string,
+    id: PropTypes.string,
     type: PropTypes.string,
     placeholder: PropTypes.string
 }
 TextInput.defaultProps = {
     label: 'Label',
-    inputId: 'defaultInput',
+    id: 'defaultInput',
     type: 'text',
     placeholder: ''
 }

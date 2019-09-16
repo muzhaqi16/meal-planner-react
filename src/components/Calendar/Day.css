@@ -27,4 +27,5 @@ li.meal-time {
 }
 .meal-name{
     text-transform: capitalize;
+    display: block;
 }
