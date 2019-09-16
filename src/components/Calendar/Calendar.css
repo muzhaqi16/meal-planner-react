@@ -12,12 +12,8 @@ li {
     list-style: none;
     display: inline-block;
 }
-.calendar {
-    height: 100vh;
-}
 .timeline {
     display: flex;
-    height: 100vh;
 }
 .input {
     padding: 10px;

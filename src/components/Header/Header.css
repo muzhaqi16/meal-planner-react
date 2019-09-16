@@ -1,0 +1,13 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 10px;
+    background-color: #357ebd;
+}
+header a{
+    color: white;
+}
+nav a{
+    padding: 10px;
+}
