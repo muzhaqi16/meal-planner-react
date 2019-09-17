@@ -30,37 +30,37 @@ export default class Week extends React.Component {
                         </li>
                         <li className="day-name">
                             <span>Mon</span>
-                            <p>{this.props.data[days[0]].date}</p>
+                            <p>{days[0]}</p>
                             <Day data={this.props.data[days[0]]} />
                         </li>
                         <li className="day-name">
                             <span>Tue </span>
-                            <p>{this.props.data[days[1]].date}</p>
+                            <p>{days[1]}</p>
                             <Day data={this.props.data[days[1]]} />
                         </li>
                         <li className="day-name">
                             <span>Wed </span>
-                            <p>{this.props.data[days[2]].date}</p>
+                            <p>{days[2]}</p>
                             <Day data={this.props.data[days[2]]} />
                         </li>
                         <li className="day-name">
                             <span>Thur </span>
-                            <p>{this.props.data[days[3]].date}</p>
+                            <p>{days[3]}</p>
                             <Day data={this.props.data[days[3]]} />
                         </li>
                         <li className="day-name">
                             <span>Fri </span>
-                            <p>{this.props.data[days[4]].date}</p>
+                            <p>{days[4]}</p>
                             <Day data={this.props.data[days[4]]} />
                         </li>
                         <li className="day-name">
                             <span>Sat </span>
-                            <p>{this.props.data[days[5]].date}</p>
+                            <p>{days[5]}</p>
                             <Day data={this.props.data[days[5]]} />
                         </li>
                         <li className="day-name">
                             <span>Sun</span>
-                            <p>{this.props.data[days[6]].date}</p>
+                            <p>{days[6]}</p>
                             <Day data={this.props.data[days[6]]} />
                         </li>
                     </ul>
