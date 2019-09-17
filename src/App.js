@@ -15,6 +15,7 @@ class App extends React.Component {
           <Header />
           <Route path="/" exact component={LandingPage} />
           <Route path="/planner" component={Planner} />
+          <Route path="/planner/:week" component={Planner} />
           <Route path="/signin/" component={Login} />
           <Route path="/signup/" component={Signup} />
           <Footer />

@@ -1,5 +1,6 @@
 import React from 'react';
 import Day from './Day';
+import { Link } from "react-router-dom";
 import './Week.css'
 export default class Week extends React.Component {
     render() {
@@ -7,9 +8,9 @@ export default class Week extends React.Component {
         return (
             <div>
                 <nav>
-                    <span>&larr; Prev Week</span>
+                    <Link to='/planner/2019-09-09'><span>&larr; Prev Week</span></Link>
                     Week of September 16th
-                    <span> Next Week &rarr;</span>
+                    <Link to='/planner/2019-09-23'><span> Next Week &rarr;</span></Link>
                 </nav>
                 <div className="week">
                     <ul>

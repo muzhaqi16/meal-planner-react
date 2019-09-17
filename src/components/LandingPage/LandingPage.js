@@ -6,11 +6,11 @@ export default class LandingPage extends React.Component {
     render() {
         return (
             <main>
-                <div class="hero">
+                <div className="hero">
                     <h1>Welcome to the your new favourite meal planner</h1>
                     <button>Try it now!</button>
                 </div>
-                <div class="articles">
+                <div className="articles">
                     <article>
                         <header>
                             <h3>Plan Meals</h3>
