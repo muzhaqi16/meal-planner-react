@@ -5,11 +5,12 @@
     flex-direction: column;
 }
 
-nav {
+.calendar-container>nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 20px;
+    width: 100%;
 }
 
 .week {
@@ -21,6 +22,7 @@ nav {
     display: flex;
     width: 100%;
     height: 100%;
+    flex-wrap: wrap;
 }
 
 .week>ul>li {
@@ -32,6 +34,7 @@ nav {
     font-size: 18px;
     background-color: #d9534f;
     display: flex;
+    flex: 1;
     flex-direction: column;
 }
 
@@ -53,6 +56,13 @@ span.no-style {
     border-bottom: 1px solid;
     box-sizing: border-box;
 }
+.meal-time a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+}
 
 li#meal-header {
     flex: 0.1 0.1;
@@ -67,7 +77,11 @@ li.header {
     #meal-header {
         display: none;
     }
-
+    .meal-time a{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
     div>p {
         display: inline-block;
     }
@@ -82,6 +96,5 @@ li.header {
 
     .week>ul>li {
         width: 100%;
-        text-align: left;
     }
 }
