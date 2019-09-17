@@ -6,7 +6,7 @@ import LandingPage from './components/LandingPage/LandingPage';
 import Planner from './components/Planner/Planner';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
-
+import './App.css'
 class App extends React.Component {
   render() {
     return (
@@ -14,7 +14,7 @@ class App extends React.Component {
         <div className="App">
           <Header />
           <Route path="/" exact component={LandingPage} />
-          <Route path="/planner" component={Planner} />
+          <Route path="/planner" exact component={Planner} />
           <Route path="/planner/:week" component={Planner} />
           <Route path="/signin/" component={Login} />
           <Route path="/signup/" component={Signup} />

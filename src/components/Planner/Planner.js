@@ -73,7 +73,6 @@ export default class Planner extends React.Component {
         }
         this.prevWeek = this.updateWeek(-7);
         this.nextWeek = this.updateWeek(7);
-        console.log(this.currentWeek, this.prevWeek, this.nextWeek)
     }
     updateWeek = (days) => {
         let now = new Date(this.currentWeek)

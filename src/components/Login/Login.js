@@ -10,7 +10,7 @@ export default class Login extends React.Component {
     }
     render() {
         return (
-            <>
+            <div className="login-page">
                 <form onSubmit={this.handleLogin} id='login-form'>
                     <h2>Log in</h2>
                     <TextInput label='Email' />
@@ -21,6 +21,6 @@ export default class Login extends React.Component {
                         <Link to='reset'>Forgot Password</Link>
                     </div>
                 </form>
-            </>)
+            </div>)
     }
 }

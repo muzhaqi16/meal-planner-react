@@ -39,3 +39,8 @@ li {
     color: white;
     padding-right: 10px;
 }
+@media all and (max-width: 480px) {
+   .timeline{
+      flex-direction: column;
+    }
+  }
