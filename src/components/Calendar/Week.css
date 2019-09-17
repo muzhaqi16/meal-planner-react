@@ -1,60 +1,87 @@
+.calendar-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    align-items: center;
     font-size: 20px;
 }
 
-.week ul {
+.week {
+    width: 100%;
+    height: 100%;
+}
+
+.week>ul {
     display: flex;
-    align-items: flex-end;
+    width: 100%;
+    height: 100%;
+}
+
+.week>ul>li {
+    width: 100%;
+    text-align: center;
 }
 
 .day-name {
     font-size: 18px;
-    flex: 1 1;
-    text-align: center;
-    text-transform: uppercase;
-}
-.day-name>p {
-    padding: 0;
-    margin: 0;
-}
-.day-name>ul {
-    height: 80vh;
+    background-color: #d9534f;
+    display: flex;
     flex-direction: column;
+}
+
+div>p {
+    padding: 10px;
+    margin: 0;
 }
 
 .day-name>span {
     font-size: 20px;
-    background-color: #428bca;
-    border-radius: 50%;
     display: inline-block;
-    height: 3em;
-    line-height: 3em;
-    text-align: center;
-    width: 3em;
 }
 
 span.no-style {
     background-color: transparent;
 }
+
 .meal-time {
-    align-self: flex-start;
-    flex: 1 1;
     border-bottom: 1px solid;
     box-sizing: border-box;
 }
 
 li#meal-header {
     flex: 0.1 0.1;
-    background-color: #e66b6b;
-   
 }
+
 li.header {
     font-size: 24px;
     letter-spacing: 3px;
 }
-.header>a{
-    color: white;
+
+@media all and (max-width: 480px) {
+    #meal-header {
+        display: none;
+    }
+
+    div>p {
+        display: inline-block;
+    }
+
+    .week {
+        height: auto;
+    }
+
+    .week>ul {
+        flex-direction: column;
+    }
+
+    .week>ul>li {
+        width: 100%;
+        text-align: left;
+    }
 }

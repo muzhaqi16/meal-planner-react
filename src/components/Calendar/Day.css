@@ -1,17 +1,18 @@
 .day {
     background-color: white;
     border-right: 1px solid grey;
-    width: 100%;
-    text-align: center;
+    height: 100%;
     display: flex;
-    flex-grow: 1;
-    flex-shrink: 1;
     flex-direction: column;
-    justify-content: flex-start;
+}
+
+.meal-time {
+    width: 100%;
 }
 
 .day>li {
     box-sizing: border-box;
+    flex: 1 1 33%;
 }
 
 .meal-time>a {
@@ -19,13 +20,18 @@
 }
 
 li.meal-time {
-    width: 100%;
     border-bottom: 1px solid grey;
+    text-align: center;
 }
-.meal-time>a {
-    display: block;
-}
-.meal-name{
+
+.meal-name {
     text-transform: capitalize;
+    padding-right: 10px;
     display: block;
+}
+
+@media all and (max-width: 480px) {
+    li.meal-time {
+        text-align: left;
+    }
 }

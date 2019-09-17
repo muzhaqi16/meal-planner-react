@@ -10,7 +10,7 @@ export default class Planner extends React.Component {
         this.state = {
             '2019-09-16': {
                 date: 'Monday',
-                breakfast: ['Omelet', 'Fuit Yogurt'],
+                breakfast: ['Omelet', 'Fuit Yogurt', 'Pancakes'],
                 lunch: ['Ceaser Salad'],
                 dinner: ['Patatoe Pie'],
                 calories: ''

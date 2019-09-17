@@ -16,8 +16,13 @@ li {
     display: inline-block;
 }
 
+.calendar {
+    flex: 1;
+}
+
 .timeline {
     display: flex;
+    height: 100%;
 }
 
 .food-log-form {
@@ -37,10 +42,10 @@ li {
     width: 100%;
     background-color: #e66b6b;
     color: white;
-    padding-right: 10px;
 }
+
 @media all and (max-width: 480px) {
-   .timeline{
-      flex-direction: column;
+    .timeline {
+        flex-direction: column;
     }
-  }
+}
