@@ -1,0 +1,17 @@
+#login-form {
+    margin: 0 auto;
+    width: 300px;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+}
+
+.options>a {
+    color: black;
+}
+
+.options>a:hover {
+    color: blue;
+}

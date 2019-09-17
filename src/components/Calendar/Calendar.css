@@ -1,31 +1,41 @@
 * {
     box-sizing: border-box;
 }
+
 a {
     text-decoration: none;
 }
+
 ul {
     margin: 0;
     padding: 0;
 }
+
 li {
     list-style: none;
     display: inline-block;
 }
+
 .timeline {
     display: flex;
 }
+
+.food-log-form {
+    padding: 0 10px;
+}
+
 .input {
     padding: 10px;
     text-align: left;
 }
+
 .input>h2 {
     text-align: center;
 }
+
 .days-of-week {
     width: 100%;
     background-color: #e66b6b;
     color: white;
     padding-right: 10px;
 }
-

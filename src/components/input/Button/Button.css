@@ -3,10 +3,19 @@
     border: 1px solid transparent;
     border-color: #357ebd;
     border-radius: 5px;
+    box-sizing: border-box;
     color: #fff;
+    cursor: pointer;
     display: block;
-    padding: 10px 16px;
-    font-size: 18px;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
     line-height: 1.33;
+    letter-spacing: 1px;
+    padding: 10px 16px;
     width: 100%;
+    margin: 10px 0;
+}
+
+button:hover {
+    opacity: 0.9;
 }
