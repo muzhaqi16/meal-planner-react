@@ -9,7 +9,7 @@ export default class Week extends React.Component {
             <div className="calendar-container">
                 <nav>
                     <Link to='/planner/2019-09-09'><span>&larr;</span></Link>
-                    Week of September 16th
+                    Week of Sept 16th
                     <Link to='/planner/2019-09-23'><span>&rarr;</span></Link>
                 </nav>
                 <div className="week">
