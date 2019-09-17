@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "alias": "meal-planner",
+    "name": "meal-planner",
+    "routes": [
+        {
+            "src": "^/static/(.*)",
+            "dest": "/static/$1"
+        },
+        {
+            "src": ".*",
+            "dest": "/index.html"
+        }
+    ]
+}

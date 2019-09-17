@@ -11,6 +11,7 @@
     align-items: center;
     font-size: 20px;
     width: 100%;
+    background-color: rgb(255, 105, 180);
 }
 
 .week {
@@ -32,7 +33,7 @@
 
 .day-name {
     font-size: 18px;
-    background-color: #d9534f;
+    background-color: #6cf;;
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -53,7 +54,7 @@ span.no-style {
 }
 
 .meal-time {
-    border-bottom: 1px solid;
+    border-bottom: 1px solid #ddd;;
     box-sizing: border-box;
 }
 .meal-time a{
