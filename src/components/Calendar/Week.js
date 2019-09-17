@@ -3,6 +3,7 @@ import Day from './Day';
 import './Week.css'
 export default class Week extends React.Component {
     render() {
+        const days = Object.keys(this.props.data)
         return (
             <div>
                 <nav>
@@ -29,38 +30,38 @@ export default class Week extends React.Component {
                         </li>
                         <li className="day-name">
                             <span>Mon</span>
-                            <p>{this.props.data.monday.date}</p>
-                            <Day data={this.props.data.monday} />
+                            <p>{this.props.data[days[0]].date}</p>
+                            <Day data={this.props.data[days[0]]} />
                         </li>
                         <li className="day-name">
                             <span>Tue </span>
-                            <p>{this.props.data.tuesday.date}</p>
-                            <Day data={this.props.data.tuesday} />
+                            <p>{this.props.data[days[1]].date}</p>
+                            <Day data={this.props.data[days[1]]} />
                         </li>
                         <li className="day-name">
                             <span>Wed </span>
-                            <p>{this.props.data.wednesday.date}</p>
-                            <Day data={this.props.data.wednesday} />
+                            <p>{this.props.data[days[2]].date}</p>
+                            <Day data={this.props.data[days[2]]} />
                         </li>
                         <li className="day-name">
                             <span>Thur </span>
-                            <p>{this.props.data.thursday.date}</p>
-                            <Day data={this.props.data.thursday} />
+                            <p>{this.props.data[days[3]].date}</p>
+                            <Day data={this.props.data[days[3]]} />
                         </li>
                         <li className="day-name">
                             <span>Fri </span>
-                            <p>{this.props.data.friday.date}</p>
-                            <Day data={this.props.data.friday} />
+                            <p>{this.props.data[days[4]].date}</p>
+                            <Day data={this.props.data[days[4]]} />
                         </li>
                         <li className="day-name">
                             <span>Sat </span>
-                            <p>{this.props.data.saturday.date}</p>
-                            <Day data={this.props.data.saturday} />
+                            <p>{this.props.data[days[5]].date}</p>
+                            <Day data={this.props.data[days[5]]} />
                         </li>
                         <li className="day-name">
                             <span>Sun</span>
-                            <p>{this.props.data.sunday.date}</p>
-                            <Day data={this.props.data.sunday} />
+                            <p>{this.props.data[days[6]].date}</p>
+                            <Day data={this.props.data[days[6]]} />
                         </li>
                     </ul>
                 </div>

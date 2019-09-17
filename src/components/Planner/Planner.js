@@ -5,62 +5,76 @@ export default class Planner extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            monday: {
-                date: '09-16-2019',
+            '2019-09-16': {
+                date: 'Monday',
                 breakfast: ['Omelet', 'Fuit Yogurt'],
-                lunch: 'Ceaser Salad',
-                dinner: 'Patatoe Pie',
+                lunch: ['Ceaser Salad'],
+                dinner: ['Patatoe Pie'],
                 calories: ''
             },
-            tuesday: {
-                date: '09-17-2019',
+            '2019-09-17': {
+                date: 'Tuesday',
                 breakfast: ['Bagel'],
-                lunch: 'Salad',
-                dinner: '',
+                lunch: ['Salad'],
+                dinner: [],
                 calories: ''
             },
-            wednesday: {
-                date: '09-18-2019',
+            '2019-09-18': {
+                date: 'Wednesday',
                 breakfast: ['Crosant'],
-                lunch: 'House Salad',
-                dinner: 'Vanilla Ice Cream',
+                lunch: ['House Salad'],
+                dinner: ['Vanilla Ice Cream'],
                 calories: ''
             },
-            thursday: {
-                date: '09-19-2019',
+            '2019-09-19': {
+                date: 'Thursday',
                 breakfast: ['Cereal'],
-                lunch: 'Greek Salad',
-                dinner: 'Pappardelli Bolognese',
+                lunch: ['Greek Salad'],
+                dinner: ['Pappardelli Bolognese'],
                 calories: ''
             },
-            friday: {
-                date: '09-20-2019',
+            '2019-09-20': {
+                date: 'Friday',
                 breakfast: ['Pancakes'],
-                lunch: 'Salad',
-                dinner: 'Lasagna',
+                lunch: ['Salad'],
+                dinner: ['Lasagna'],
                 calories: ''
             },
-            saturday: {
-                date: '09-21-2019',
+            '2019-09-21': {
+                date: 'Saturday',
                 breakfast: ['Muffin'],
-                lunch: 'Salad',
-                dinner: 'Baked Chicken',
+                lunch: ['Salad'],
+                dinner: ['Baked Chicken'],
                 calories: ''
             },
-            sunday: {
-                date: '09-22-2019',
+            '2019-09-22': {
+                date: 'Sunday',
                 breakfast: ['Banana'],
-                lunch: 'Apple Pie',
-                dinner: 'Lasagna',
+                lunch: ['Apple Pie'],
+                dinner: ['Lasagna'],
                 calories: ''
             }
         }
     }
     addMeal = (day, name, time, calories) => {
-        const single_day = this.state.monday;
-        single_day.breakfast = [...this.state.monday.breakfast, name]
+        let selected_day = {};
+        if (!this.state[day]) {
+            selected_day = {
+                date: 'Monday',
+                [time]: new Array(name),
+                calories
+            }
+        } else {
+            selected_day = this.state[day];
+            if (selected_day[time]) {
+                selected_day[time] = [...selected_day[time], name]
+            } else {
+                selected_day[time] = [name]
+            }
+        }
+
         this.setState({
-            monday: single_day
+            [day]: selected_day
         })
     }
     render() {
