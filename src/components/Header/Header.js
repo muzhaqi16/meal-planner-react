@@ -7,7 +7,7 @@ export default class Header extends React.Component {
         return (
             <header>
                 <div id="logo">
-                    <h2><a href="index.html">Meal Planner</a></h2>
+                    <h2><a href="/">Meal Planner</a></h2>
                 </div>
                 <nav>
                     <Link to="/">Home</Link>
