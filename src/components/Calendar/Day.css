@@ -27,11 +27,15 @@ li.meal-time {
     align-items: center;
     justify-content: space-between;
 }
+span{
+    flex: 2;
+}
 .breakfast,.lunch,.dinner{
     margin-right: 10px;
     align-self: center;
     height: 100%;
     display: none;
+    flex: 1;
 }
 .breakfast{
     border-right:5px solid blue;
@@ -47,9 +51,7 @@ li.meal-time {
     padding-right: 10px;
     display: inline-block;
 }
-.meal-time>span{
-    flex: 1;
-}
+
 
 @media all and (max-width: 480px) {
     li.meal-time {
