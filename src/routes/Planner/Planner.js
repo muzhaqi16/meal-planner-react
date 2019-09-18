@@ -1,5 +1,5 @@
 import React from 'react';
-import Calendar from '../Calendar/Calendar'
+import Calendar from '../../components/Calendar/Calendar'
 
 export default class Planner extends React.Component {
     constructor(props) {

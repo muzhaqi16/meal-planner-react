@@ -2,10 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer'
-import LandingPage from './components/LandingPage/LandingPage';
-import Planner from './components/Planner/Planner';
-import Login from './components/Login/Login';
-import Signup from './components/Signup/Signup';
+import LandingPage from './routes/LandingPage/LandingPage';
+import Planner from './routes/Planner/Planner';
+import Login from './routes/Login/Login';
+import Signup from './routes/Signup/Signup';
 import './App.css'
 class App extends React.Component {
   render() {

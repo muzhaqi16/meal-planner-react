@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../input/Button/Button'
+import Button from '../../components/input/Button/Button'
 import './LandingPage.css'
 
 export default class LandingPage extends React.Component {
