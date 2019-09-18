@@ -54,10 +54,10 @@ article {
 
 .hero h1 {
     font-size: 50px;
-    background-color: white;
     border-radius: 20px;
     padding: 10px;
-    opacity: 0.9;
+    background-color: rgba(72,72,72,0.4);
+    color:white;
 }
 
 .hero button {
