@@ -54,6 +54,10 @@ span{
 
 
 @media all and (max-width: 480px) {
+    .day{
+        
+    border-right:none;
+    }
     li.meal-time {
         text-align: left;
         padding: 2px;

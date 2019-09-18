@@ -84,6 +84,9 @@ li.header {
 }
 
 @media all and (max-width: 480px) {
+    .calendar-container{
+    padding: 10px;
+    }
     #meal-header {
         display: none;
     }

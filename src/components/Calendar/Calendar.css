@@ -46,7 +46,6 @@ li {
 }
 .days-of-week {
     width: 100%;
-    background-color: #e66b6b;
     color: white;
     display: flex;
 }

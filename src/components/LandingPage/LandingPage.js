@@ -8,8 +8,9 @@ export default class LandingPage extends React.Component {
             <main>
                 <div className="hero">
                     <div className="hero-container">
-                        <h1>Welcome to the your new favourite meal planner</h1>
-                        <Button text='Try it now!' />
+                        <h1>Meal Planning Made Easy</h1>
+
+                        <Button text='Get Started' />
                     </div>
                 </div>
                 <div className="articles">
