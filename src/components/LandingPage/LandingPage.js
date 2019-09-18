@@ -7,8 +7,10 @@ export default class LandingPage extends React.Component {
         return (
             <main>
                 <div className="hero">
-                    <h1>Welcome to the your new favourite meal planner</h1>
-                    <button>Try it now!</button>
+                    <div className="hero-container">
+                        <h1>Welcome to the your new favourite meal planner</h1>
+                        <Button text='Try it now!' />
+                    </div>
                 </div>
                 <div className="articles">
                     <article>
@@ -19,7 +21,7 @@ export default class LandingPage extends React.Component {
                             Plan your meals for the week in advance with our built in recipe search function and never have
                             to
                             worry about what to cook
-                    </p>
+                        </p>
                         <footer>
                             <Button text="Plan it now" />
                         </footer>

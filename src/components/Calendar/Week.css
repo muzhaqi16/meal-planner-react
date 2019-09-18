@@ -28,7 +28,6 @@
 
 .week>ul>li {
     width: 100%;
-    text-align: center;
 }
 
 .day-name {
@@ -38,7 +37,9 @@
     flex: 1;
     flex-direction: column;
 }
-
+.day-name>div{
+    text-align: center;
+}
 div>p {
     padding: 10px;
     margin: 0;
@@ -67,6 +68,14 @@ span.no-style {
 
 li#meal-header {
     flex: 0.1 0.1;
+    
+    background-color: #ff69b4;
+}
+.header{
+    background-color: #ff69b4;
+    
+}.header>a{
+    color: white;
 }
 
 li.header {

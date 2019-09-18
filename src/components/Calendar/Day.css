@@ -22,16 +22,41 @@
 li.meal-time {
     border-bottom: 1px solid grey;
     text-align: center;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-
+.breakfast,.lunch,.dinner{
+    margin-right: 10px;
+    align-self: center;
+    height: 100%;
+    display: none;
+}
+.breakfast{
+    border-right:5px solid blue;
+}
+.lunch{
+    border-right:5px solid green;
+}
+.dinner{
+    border-right:5px solid red;
+}
 .meal-name {
     text-transform: capitalize;
     padding-right: 10px;
-    display: block;
+    display: inline-block;
+}
+.meal-time>span{
+    flex: 1;
 }
 
 @media all and (max-width: 480px) {
     li.meal-time {
         text-align: left;
+        padding: 2px;
+    }
+    .breakfast,.lunch,.dinner{
+        display: inline-block;
     }
 }
