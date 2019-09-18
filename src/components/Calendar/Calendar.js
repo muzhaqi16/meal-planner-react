@@ -19,21 +19,17 @@ export default class Calendar extends React.Component {
                     <div className="input">
                         <h2>Add a meal to your calendar</h2>
                         <form className="food-log-form" onSubmit={this.handleAdd}>
-                            <div>
-                                <TextInput label="Select Date" type="date" id="date" />
-                            </div>
-                            <div>
-                                <TextInput label="Food" placeholder="Enter meal name..." id="food_name" />
-                            </div>
-                            <div>
-                                <Select label="Time" options={['breakfast', 'lunch', 'dinner']} id="meal_time" />
-                            </div>
-                            <div>
-                                <TextInput label="Calories" id="calories" />
-                            </div>
-                            <div>
-                                <Buttton text="Add Meal" type='submit' />
-                            </div>
+
+                            <TextInput label="Select Date" type="date" id="date" />
+
+                            <TextInput label="Food" placeholder="Enter meal name..." id="food_name" />
+
+                            <Select label="Time" options={['breakfast', 'lunch', 'dinner']} id="meal_time" />
+
+                            <TextInput label="Calories" id="calories" />
+
+                            <Buttton text="Add Meal" type='submit' />
+
                         </form>
                     </div>
                     <div className="days-of-week">
