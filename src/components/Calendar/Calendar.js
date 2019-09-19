@@ -11,6 +11,25 @@ export default class Calendar extends React.Component {
         const { food_name, meal_time, calories, date } = ev.target;
         this.props.add(date.value, food_name.value, meal_time.value, calories.value)
         ev.target.reset();
+
+        // fetch(config.API_ENDPOINT + '/groceries', {
+        //     method: 'GET',
+        //     headers: {
+        //         'content-type': 'application/json',
+        //         'Authorization': `bearer ${TokenService.getAuthToken()}`
+        //     }
+        // })
+        //     .then(res => {
+        //         if (!res.ok) {
+        //             return res.json().then(error => Promise.reject(error))
+        //         }
+        //         return res.json()
+        //     })
+        //     .then(this.context.setGroceries)
+        //     .catch(error => {
+        //         console.error(error)
+        //         this.setState({ hasError: error })
+        //     })
     }
     render() {
         return (

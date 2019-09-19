@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import TokenService from '../../services/token-service'
 import AuthApiService from '../../services/auth-api-service'
 import TextInput from '../../components/input/TextInput/TextInput'
 import Button from '../../components/input/Button/Button'
@@ -22,7 +23,7 @@ export default class Login extends React.Component {
             .then(res => {
                 user_name.value = ''
                 password.value = '';
-                console.log(res)
+                TokenService.saveAuthToken(res.authToken)
                 history.push('planner')
             })
             .catch(res => {

@@ -64,6 +64,7 @@ span.no-style {
     align-items: center;
     height: 100%;
     justify-content: center;
+    width: 100%;
 }
 
 li#meal-header {
