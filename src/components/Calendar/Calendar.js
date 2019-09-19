@@ -1,4 +1,6 @@
 import React from 'react';
+import TokenService from '../../services/token-service'
+import config from '../../config'
 import Week from './Week';
 import './Calendar.css'
 import TextInput from '../input/TextInput/TextInput'
@@ -9,27 +11,37 @@ export default class Calendar extends React.Component {
     handleAdd = (ev) => {
         ev.preventDefault();
         const { food_name, meal_time, calories, date } = ev.target;
+        const newMeal = {
+            "name": food_name.value,
+            "date": date.value,
+            "time": meal_time.value,
+            "calories": Number(calories.value)
+        }
+        this.setState({ error: null })
+
+        fetch(config.API_ENDPOINT + '/meal', {
+            method: 'POST',
+            body: JSON.stringify(newMeal),
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            }
+        })
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(error => Promise.reject(error))
+                }
+                return res.json()
+            })
+            .then(data => {
+                console.log(data)
+            })
+            .catch(error => {
+                console.error(error)
+                this.setState({ error })
+            })
         this.props.add(date.value, food_name.value, meal_time.value, calories.value)
         ev.target.reset();
-
-        // fetch(config.API_ENDPOINT + '/groceries', {
-        //     method: 'GET',
-        //     headers: {
-        //         'content-type': 'application/json',
-        //         'Authorization': `bearer ${TokenService.getAuthToken()}`
-        //     }
-        // })
-        //     .then(res => {
-        //         if (!res.ok) {
-        //             return res.json().then(error => Promise.reject(error))
-        //         }
-        //         return res.json()
-        //     })
-        //     .then(this.context.setGroceries)
-        //     .catch(error => {
-        //         console.error(error)
-        //         this.setState({ hasError: error })
-        //     })
     }
     render() {
         return (
