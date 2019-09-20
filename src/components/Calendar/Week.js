@@ -16,7 +16,6 @@ export default class Week extends React.Component {
     }
     handleClick = () => {
         this.setState({
-
             status: !this.state.status
         })
         this.props.show()

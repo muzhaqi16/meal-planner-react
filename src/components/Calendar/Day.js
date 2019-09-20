@@ -8,21 +8,21 @@ export default class Day extends React.Component {
                 <li className="meal-time">
                     <span className="breakfast">Breakfast</span>
                     <span>{this.props.data.breakfast.map((item =>
-                        <em key={item} className="meal-name">{item}</em>
+                        <em key={item.id} className="meal-name">{item.name}</em>
                     ))}
                     </span>
                 </li>
                 <li className="meal-time">
                     <span className="lunch"> Lunch  </span>
                     <span>{this.props.data.lunch.map((item =>
-                        <em key={item} className="meal-name">{item}</em>
+                        <em key={item.id} className="meal-name">{item.name}</em>
                     ))}
                     </span>
                 </li>
                 <li className="meal-time last">
                     <span className="dinner">Dinner </span>
                     <span>{this.props.data.dinner.map((item =>
-                        <em key={item} className="meal-name">{item}</em>
+                        <em key={item.id} className="meal-name">{item.name}</em>
                     ))}
                     </span>
 
