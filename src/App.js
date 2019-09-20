@@ -6,6 +6,10 @@ import LandingPage from './routes/LandingPage/LandingPage';
 import Planner from './routes/Planner/Planner';
 import Login from './routes/Login/Login';
 import Signup from './routes/Signup/Signup';
+
+import PrivateRoute from './components/Utils/PrivateRoute'
+import PublicOnlyRoute from './components/Utils/PublicOnlyRoute'
+
 import './App.css'
 class App extends React.Component {
   render() {
@@ -14,10 +18,10 @@ class App extends React.Component {
         <div className="App">
           <Header />
           <Route path="/" exact component={LandingPage} />
-          <Route path="/planner" exact component={Planner} />
-          <Route path="/planner/:week" component={Planner} />
-          <Route path="/signin/" component={Login} />
-          <Route path="/signup/" component={Signup} />
+          <PrivateRoute path="/planner" exact component={Planner} />
+          <PrivateRoute path="/planner/:week" component={Planner} />
+          <PublicOnlyRoute path="/signin/" component={Login} />
+          <PublicOnlyRoute path="/signup/" component={Signup} />
           <Footer />
         </div>
       </Router>
