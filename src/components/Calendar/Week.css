@@ -69,8 +69,10 @@ span.no-style {
 
 li#meal-header {
     flex: 0.1 0.1;
-    
     background-color: #ff69b4;
+}
+#meal-header>div{
+    font-size: 2rem;
 }
 .header{
     background-color: #ff69b4;
@@ -88,7 +90,10 @@ li.header {
     .calendar-container{
     padding: 10px;
     }
-    #meal-header {
+    #meal-header>div{
+        font-size: 1.5rem;
+    }
+    #meal-header .day {
         display: none;
     }
     .meal-time a{

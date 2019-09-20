@@ -1,8 +1,26 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons'
+
+
 import Day from './Day';
 import { Link } from "react-router-dom";
 import './Week.css'
 export default class Week extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            status: true
+        }
+
+    }
+    handleClick = () => {
+        this.setState({
+
+            status: !this.state.status
+        })
+        this.props.show()
+    }
     render() {
         const days = Object.keys(this.props.data)
         return (
@@ -15,8 +33,9 @@ export default class Week extends React.Component {
                 <div className="week">
                     <ul>
                         <li className="day-name" id="meal-header">
-                            <div><span className="no-style">&nbsp;</span>
-                                <p>&nbsp;</p> </div>
+                            <div>
+                                <FontAwesomeIcon title={this.state.status ? "Add Items" : "Close"} icon={this.state.status ? faPlus : faTimes} onClick={this.handleClick} />
+                            </div>
                             <ul className="day">
                                 <li className="meal-time header">
                                     <a href="/">B</a>

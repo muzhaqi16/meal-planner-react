@@ -33,8 +33,11 @@ li {
     padding: 10px;
     text-align: left;
 }
-
-.input>h2 {
+.food-log-form{
+    width: 100%;
+    align-self: flex-start;
+}
+.food-log-form>h2 {
     text-align: center;
     color: #33b5e5;
     font-size: 22px;
@@ -49,7 +52,12 @@ li {
     color: white;
     display: flex;
 }
-
+svg{
+    margin: 10px;
+}
+svg:hover{
+    color: #33b5e5;
+}
 @media all and (max-width: 480px) {
     .timeline {
         flex-direction: column;

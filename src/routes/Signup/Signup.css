@@ -31,3 +31,9 @@
 .options>a:hover {
     color: blue;
 }
+#signup-form>span{
+    font-size: 12px;
+    display: block;
+    margin-bottom: 10px;
+    color: #5B5E6F;
+}

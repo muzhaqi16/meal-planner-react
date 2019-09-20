@@ -8,6 +8,18 @@ import Select from '../input/Select/Select'
 import Buttton from '../input/Button/Button'
 
 export default class Calendar extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            hidden: true
+        }
+
+    }
+    showInput = () => {
+        this.setState({
+            hidden: !this.state.hidden
+        })
+    }
     handleAdd = (ev) => {
         ev.preventDefault();
         const { food_name, meal_time, calories, date } = ev.target;
@@ -47,24 +59,25 @@ export default class Calendar extends React.Component {
         return (
             <div className="calendar">
                 <div className="timeline">
-                    <div className="input">
-                        <h2>Add a meal to your calendar</h2>
-                        <form className="food-log-form" onSubmit={this.handleAdd}>
+                    {!this.state.hidden &&
+                        <div className="input">
+                            <form className="food-log-form" onSubmit={this.handleAdd}>
+                                <h2>Add a meal to your calendar</h2>
+                                <TextInput label="Select Date" type="date" id="date" />
 
-                            <TextInput label="Select Date" type="date" id="date" />
+                                <TextInput label="Food" placeholder="Enter meal name..." id="food_name" />
 
-                            <TextInput label="Food" placeholder="Enter meal name..." id="food_name" />
+                                <Select label="Time" options={['breakfast', 'lunch', 'dinner']} id="meal_time" />
 
-                            <Select label="Time" options={['breakfast', 'lunch', 'dinner']} id="meal_time" />
+                                <TextInput label="Calories" id="calories" />
 
-                            <TextInput label="Calories" id="calories" />
+                                <Buttton text="Add Meal" type='submit' />
 
-                            <Buttton text="Add Meal" type='submit' />
-
-                        </form>
-                    </div>
+                            </form>
+                        </div>
+                    }
                     <div className="days-of-week">
-                        <Week data={this.props.data} changeWeek={this.props.changeWeek} />
+                        <Week show={this.showInput} data={this.props.data} changeWeek={this.props.changeWeek} />
                     </div>
                 </div>
 
