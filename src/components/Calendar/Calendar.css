@@ -56,7 +56,7 @@ svg{
     margin: 10px;
 }
 svg:hover{
-    color: #33b5e5;
+    color: #ff69b4;;
 }
 @media all and (max-width: 480px) {
     .timeline {

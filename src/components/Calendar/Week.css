@@ -69,10 +69,9 @@ span.no-style {
 
 li#meal-header {
     flex: 0.1 0.1;
-    background-color: #ff69b4;
 }
 #meal-header>div{
-    font-size: 2rem;
+    font-size: 2.65rem;
 }
 .header{
     background-color: #ff69b4;

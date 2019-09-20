@@ -4,7 +4,6 @@ import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 
 import Day from './Day';
-import { Link } from "react-router-dom";
 import './Week.css'
 export default class Week extends React.Component {
     constructor(props) {
@@ -20,14 +19,27 @@ export default class Week extends React.Component {
         })
         this.props.show()
     }
+    formatDate = (date) => {
+        var d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+
+        if (month.length < 2)
+            month = '0' + month;
+        if (day.length < 2)
+            day = '0' + day;
+        console.log([year, month, day].join('-'))
+        return [year, month, day].join('-');
+    }
     render() {
-        const days = Object.keys(this.props.data)
+        const week = new Date(this.props.week.currentWeek)
         return (
             <div className="calendar-container">
                 <nav>
-                    <Link to='/planner/2019-09-09'><span>&larr;</span></Link>
-                    Week of Sept 16th
-                    <Link to='/planner/2019-09-23'><span>&rarr;</span></Link>
+                    <a href={'/planner/' + this.props.week.prevWeek}><span>&larr;</span></a>
+                    Week of {week.toLocaleString('default', { month: 'short' }) + ' ' + (week.getDate() + 1)}
+                    <a href={'/planner/' + this.props.week.nextWeek}><span>&rarr;</span></a>
                 </nav>
                 <div className="week">
                     <ul>
@@ -49,43 +61,46 @@ export default class Week extends React.Component {
                         </li>
                         <li className="day-name">
                             <div><span>Mon</span>
-                                <p>{days[0].slice(-2)}</p>
+                                <p>{week.getDate() + 1}</p>
                             </div>
-                            <Day data={this.props.data[days[0]]} />
+                            <Day data={this.props.data[this.formatDate(week.setDate(week.getDate() + 1))]} />
                         </li>
                         <li className="day-name">
                             <div><span>Tue </span>
-                                <p>{days[1].slice(-2)}</p> </div>
-                            <Day data={this.props.data[days[1]]} />
+                                <p>{week.getDate() + 1}</p> </div>
+                            <Day data={this.props.data[this.formatDate(week.setDate(week.getDate() + 1))]} />
                         </li>
                         <li className="day-name">
                             <div><span>Wed </span>
-                                <p>{days[2].slice(-2)}</p> </div>
-                            <Day data={this.props.data[days[2]]} />
+                                <p>{week.getDate() + 1}</p> </div>
+                            <Day data={this.props.data[this.formatDate(week.setDate(week.getDate() + 1))]} />
                         </li>
                         <li className="day-name">
                             <div><span>Thur </span>
-                                <p>{days[3].slice(-2)}</p> </div>
-                            <Day data={this.props.data[days[3]]} />
+                                <p>{week.getDate() + 1}</p> </div>
+                            <Day data={this.props.data[this.formatDate(week.setDate(week.getDate() + 1))]} />
                         </li>
                         <li className="day-name">
                             <div><span>Fri </span>
-                                <p>{days[4].slice(-2)}</p> </div>
-                            <Day data={this.props.data[days[4]]} />
+                                <p>{week.getDate() + 1}</p> </div>
+                            <Day data={this.props.data[this.formatDate(week.setDate(week.getDate() + 1))]} />
                         </li>
                         <li className="day-name">
                             <div><span>Sat </span>
-                                <p>{days[5].slice(-2)}</p> </div>
-                            <Day data={this.props.data[days[5]]} />
+                                <p>{week.getDate() + 1}</p> </div>
+                            <Day data={this.props.data[this.formatDate(week.setDate(week.getDate() + 1))]} />
                         </li>
                         <li className="day-name">
                             <div> <span>Sun</span>
-                                <p>{days[6].slice(-2)}</p> </div>
-                            <Day data={this.props.data[days[6]]} />
+                                <p>{week.getDate() + 1}</p> </div>
+                            <Day data={this.props.data[this.formatDate(week.setDate(week.getDate() + 1))]} />
                         </li>
                     </ul>
                 </div>
             </div>
         )
     }
+}
+Week.defaultProps = {
+    week: new Date()
 }

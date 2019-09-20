@@ -6,9 +6,11 @@ import Calendar from '../../components/Calendar/Calendar'
 export default class Planner extends React.Component {
     constructor(props) {
         super(props)
-        this.currentWeek = '';
-        this.prevWeek = '';
-        this.nextWeek = '';
+        this.week = {
+            currentWeek: '',
+            prevWeek: '',
+            nextWeek: ''
+        }
         this.state = {}
     }
     getMonday(d) {
@@ -44,7 +46,7 @@ export default class Planner extends React.Component {
         return [year, month, day].join('-');
     }
     fetchData = () => {
-        fetch(config.API_ENDPOINT + '/meal/' + this.currentWeek, {
+        fetch(config.API_ENDPOINT + '/meal/' + this.week.currentWeek, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -74,44 +76,46 @@ export default class Planner extends React.Component {
     }
     componentDidMount() {
         if (this.props.match.params.week) {
-            this.currentWeek = this.props.match.params.week
+            this.week.currentWeek = this.props.match.params.week
         } else {
-            this.currentWeek = this.formatDate(this.getMonday(new Date()))
+            this.week.currentWeek = this.formatDate(this.getMonday(new Date()))
         }
-        this.prevWeek = this.formatDate(this.updateWeek(-7));
-        this.nextWeek = this.formatDate(this.updateWeek(7));
+        this.week.prevWeek = this.formatDate(this.updateWeek(-6));
+        this.week.nextWeek = this.formatDate(this.updateWeek(8));
         this.fetchData();
     }
     updateWeek = (days) => {
-        let now = new Date(this.currentWeek)
+        let now = new Date(this.week.currentWeek)
         now.setDate(now.getDate() + days);
         return now;
     }
-    addMeal = (day, name, time, calories) => {
+    addMeal = (id, date, name, time, calories) => {
         let selected_day = {};
-        if (!this.state[day]) {
+        if (!this.state.data[date][time]) {
             selected_day = {
-                date: 'Monday',
-                [time]: new Array(name),
-                calories
+                [time]: {
+                    name,
+                    id,
+                    calories,
+                    date,
+                    time
+                }
             }
         } else {
-            selected_day = this.state[day];
+            selected_day = this.state.data[date];
             if (selected_day[time]) {
-                selected_day[time] = [...selected_day[time], name]
+                selected_day[time] = [...selected_day[time], { id, date, name, time, calories }]
             } else {
                 selected_day[time] = [name]
             }
         }
-        this.setState({
-            [day]: selected_day
-        })
+
     }
     render() {
         return (
             <>
                 {this.state.data &&
-                    <Calendar data={this.state.data} changeWeek={this.updateWeek} add={this.addMeal} />
+                    <Calendar data={this.state.data} week={this.week} add={this.addMeal} />
                 }
             </>
         )

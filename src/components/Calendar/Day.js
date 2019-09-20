@@ -7,25 +7,34 @@ export default class Day extends React.Component {
             <ul className="day">
                 <li className="meal-time">
                     <span className="breakfast">Breakfast</span>
-                    <span>{this.props.data.breakfast.map((item =>
-                        <em key={item.id} className="meal-name">{item.name}</em>
-                    ))}
-                    </span>
+                    {this.props.data.breakfast &&
+                        <span>{this.props.data.breakfast.map((item =>
+                            <em key={item.id} className="meal-name">{item.name}</em>
+                        ))}
+                        </span>
+                    }
+                    {!this.props.data.breakfast && <span></span>}
                 </li>
                 <li className="meal-time">
                     <span className="lunch"> Lunch  </span>
-                    <span>{this.props.data.lunch.map((item =>
-                        <em key={item.id} className="meal-name">{item.name}</em>
-                    ))}
-                    </span>
+                    {this.props.data.lunch &&
+                        <span>{this.props.data.lunch.map((item =>
+                            <em key={item.id} className="meal-name">{item.name}</em>
+                        ))}
+                        </span>
+                    }
+                    {/* this fixes the problem with layout when there is no data for lunch */}
+                    {!this.props.data.lunch && <span></span>}
                 </li>
                 <li className="meal-time last">
                     <span className="dinner">Dinner </span>
-                    <span>{this.props.data.dinner.map((item =>
-                        <em key={item.id} className="meal-name">{item.name}</em>
-                    ))}
-                    </span>
-
+                    {this.props.data.dinner &&
+                        <span>{this.props.data.dinner.map((item =>
+                            <em key={item.id} className="meal-name">{item.name}</em>
+                        ))}
+                        </span>
+                    }
+                    {!this.props.data.dinner && <span></span>}
                 </li>
             </ul>
         )
@@ -37,5 +46,10 @@ Day.propTypes = {
 }
 Day.defaultProps = {
     meal: 'Meal Name',
-    day: 'Monday'
+    day: 'Monday',
+    data: {
+        breakfast: [],
+        lunch: [],
+        dinner: []
+    }
 }

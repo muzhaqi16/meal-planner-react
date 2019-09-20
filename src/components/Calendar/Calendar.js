@@ -46,13 +46,12 @@ export default class Calendar extends React.Component {
                 return res.json()
             })
             .then(data => {
-                console.log(data)
+                this.props.add(data.id, newMeal.date, newMeal.name, newMeal.time, newMeal.calories)
             })
             .catch(error => {
                 console.error(error)
                 this.setState({ error })
             })
-        this.props.add(date.value, food_name.value, meal_time.value, calories.value)
         ev.target.reset();
     }
     render() {
@@ -77,7 +76,7 @@ export default class Calendar extends React.Component {
                         </div>
                     }
                     <div className="days-of-week">
-                        <Week show={this.showInput} data={this.props.data} changeWeek={this.props.changeWeek} />
+                        <Week show={this.showInput} data={this.props.data} week={this.props.week} />
                     </div>
                 </div>
 
