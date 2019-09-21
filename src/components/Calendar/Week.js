@@ -36,7 +36,7 @@ export default class Week extends React.Component {
 
         let weekData = daysOfWeek.map(day => {
             nextDay.setDate(nextDay.getDate() + 1)
-            return (<li className="day-name">
+            return (<li key={day} className="day-name">
                 <div><span>{day}</span>
                     <p>{nextDay.getDate()}</p>
                 </div>
