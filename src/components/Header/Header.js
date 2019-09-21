@@ -34,12 +34,10 @@ export default class Header extends React.Component {
                 <nav role="navigation">
                     <Link to="/">Home</Link>
 
+                    <Link to="/planner">Plan&nbsp;It</Link>
                     {TokenService.hasAuthToken()
                         ? this.renderLogoutLink()
                         : this.renderLoginLink()}
-
-                    <Link to="/planner">Plan&nbsp;It</Link>
-
                 </nav>
             </header>)
     }
