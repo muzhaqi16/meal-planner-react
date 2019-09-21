@@ -91,25 +91,29 @@ export default class Planner extends React.Component {
     }
     addMeal = (id, date, name, time, calories) => {
         let selected_day = {};
-        if (!this.state.data[date][time]) {
+        if (!this.state.data[date]) {
             selected_day = {
-                [time]: {
+                [time]: [{
                     name,
                     id,
                     calories,
                     date,
                     time
-                }
+                }]
             }
         } else {
             selected_day = this.state.data[date];
             if (selected_day[time]) {
                 selected_day[time] = [...selected_day[time], { id, date, name, time, calories }]
             } else {
-                selected_day[time] = [name]
+                selected_day[time] = [{ id, date, name, time, calories }]
             }
         }
-
+        const stateCopy = this.state.data;
+        stateCopy[date] = selected_day;
+        this.setState({
+            data: stateCopy
+        })
     }
     render() {
         return (
