@@ -10,16 +10,15 @@ header a {
     color: white;
 }
 
-nav {
-    text-align: center;
-}
-
 nav a {
     padding: 10px;
 }
 
-@media all and (max-width: 390px) {
-    nav>li {
-        padding: 10px 0;
+@media all and (max-width: 480px) {
+    nav a{
+        display: block;
+    }
+    nav>a {
+        padding: 5px 0;
     }
 }

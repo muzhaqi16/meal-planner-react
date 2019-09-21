@@ -15,16 +15,14 @@ export default class Header extends React.Component {
         this.setState({ hidden: !this.state.hidden })
     }
     renderLogoutLink() {
-        return (<div>
-            <a onClick={this.handleLogoutClick} href='/'> Log out</a>
-        </div>)
+        return (
+            <a onClick={this.handleLogoutClick} href='/'> Log&nbsp;out</a>
+        )
     }
 
     renderLoginLink() {
         return (
-            <div>
-                <Link to='/signin' onClick={() => this.setState({ hidden: !this.state.hidden })}>Log in</Link>
-            </div>
+            <Link to='/signin' onClick={() => this.setState({ hidden: !this.state.hidden })}>Log&nbsp;in</Link>
         )
     }
     render() {
@@ -33,14 +31,15 @@ export default class Header extends React.Component {
                 <div id="logo">
                     <h2><a href="/">Meal Planner</a></h2>
                 </div>
-                <nav>
+                <nav role="navigation">
                     <Link to="/">Home</Link>
-                    <li>
-                        {TokenService.hasAuthToken()
-                            ? this.renderLogoutLink()
-                            : this.renderLoginLink()}
-                    </li>
+
+                    {TokenService.hasAuthToken()
+                        ? this.renderLogoutLink()
+                        : this.renderLoginLink()}
+
                     <Link to="/planner">Plan&nbsp;It</Link>
+
                 </nav>
             </header>)
     }
