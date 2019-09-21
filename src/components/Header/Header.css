@@ -5,9 +5,17 @@ header {
     padding: 0 10px;
     background-color: #357ebd;
 }
-header a{
+
+header a {
     color: white;
 }
-nav a{
+
+nav a {
     padding: 10px;
+}
+
+@media all and (max-width: 390px) {
+    nav>li {
+        display: block;
+    }
 }

@@ -40,7 +40,7 @@ export default class Header extends React.Component {
                             ? this.renderLogoutLink()
                             : this.renderLoginLink()}
                     </li>
-                    <Link to="/planner">Plan It</Link>
+                    <Link to="/planner">Plan&nbsp;It</Link>
                 </nav>
             </header>)
     }
