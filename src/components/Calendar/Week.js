@@ -1,8 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons'
-
-
 import Day from './Day';
 import './Week.css'
 export default class Week extends React.Component {
@@ -29,16 +27,27 @@ export default class Week extends React.Component {
             month = '0' + month;
         if (day.length < 2)
             day = '0' + day;
-        console.log([year, month, day].join('-'))
         return [year, month, day].join('-');
     }
     render() {
-        const week = new Date(this.props.week.currentWeek)
+        const currentWeek = new Date(this.props.week.currentWeek);
+        const nextDay = new Date(this.props.week.currentWeek);
+        const daysOfWeek = ['Mon', 'Tue', "Wed", "Thur", "Fri", "Sat", "Sun"];
+
+        let weekData = daysOfWeek.map(day => {
+            nextDay.setDate(nextDay.getDate() + 1)
+            return (<li className="day-name">
+                <div><span>{day}</span>
+                    <p>{nextDay.getDate()}</p>
+                </div>
+                <Day data={this.props.data[this.formatDate(nextDay)]} />
+            </li>);
+        })
         return (
             <div className="calendar-container">
                 <nav>
                     <a href={'/planner/' + this.props.week.prevWeek}><span>&larr;</span></a>
-                    Week of {week.toLocaleString('default', { month: 'short' }) + ' ' + (week.getDate() + 1)}
+                    Week of {currentWeek.toLocaleString('default', { month: 'short' }) + ' ' + (currentWeek.getDate() + 1)}
                     <a href={'/planner/' + this.props.week.nextWeek}><span>&rarr;</span></a>
                 </nav>
                 <div className="week">
@@ -59,42 +68,7 @@ export default class Week extends React.Component {
                                 </li>
                             </ul>
                         </li>
-                        <li className="day-name">
-                            <div><span>Mon</span>
-                                <p>{week.getDate() + 1}</p>
-                            </div>
-                            <Day data={this.props.data[this.formatDate(week.setDate(week.getDate() + 1))]} />
-                        </li>
-                        <li className="day-name">
-                            <div><span>Tue </span>
-                                <p>{week.getDate() + 1}</p> </div>
-                            <Day data={this.props.data[this.formatDate(week.setDate(week.getDate() + 1))]} />
-                        </li>
-                        <li className="day-name">
-                            <div><span>Wed </span>
-                                <p>{week.getDate() + 1}</p> </div>
-                            <Day data={this.props.data[this.formatDate(week.setDate(week.getDate() + 1))]} />
-                        </li>
-                        <li className="day-name">
-                            <div><span>Thur </span>
-                                <p>{week.getDate() + 1}</p> </div>
-                            <Day data={this.props.data[this.formatDate(week.setDate(week.getDate() + 1))]} />
-                        </li>
-                        <li className="day-name">
-                            <div><span>Fri </span>
-                                <p>{week.getDate() + 1}</p> </div>
-                            <Day data={this.props.data[this.formatDate(week.setDate(week.getDate() + 1))]} />
-                        </li>
-                        <li className="day-name">
-                            <div><span>Sat </span>
-                                <p>{week.getDate() + 1}</p> </div>
-                            <Day data={this.props.data[this.formatDate(week.setDate(week.getDate() + 1))]} />
-                        </li>
-                        <li className="day-name">
-                            <div> <span>Sun</span>
-                                <p>{week.getDate() + 1}</p> </div>
-                            <Day data={this.props.data[this.formatDate(week.setDate(week.getDate() + 1))]} />
-                        </li>
+                        {weekData}
                     </ul>
                 </div>
             </div>
