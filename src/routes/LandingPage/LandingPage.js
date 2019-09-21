@@ -10,7 +10,7 @@ export default class LandingPage extends React.Component {
                     <div className="hero-container">
                         <h1>Meal Planning Made Easy</h1>
 
-                        <Button text='Get Started' />
+                        <a href="/planner"> <Button text='Get Started' /></a>
                     </div>
                 </div>
                 <div className="articles">
@@ -24,7 +24,7 @@ export default class LandingPage extends React.Component {
                             worry about what to cook
                         </p>
                         <footer>
-                            <Button text="Plan it now" />
+                            <a href="/planner"><Button text="Plan it now" /></a>
                         </footer>
                     </article>
                     <article>
@@ -35,7 +35,7 @@ export default class LandingPage extends React.Component {
                             Save your favourite recipes to your list so next time you know what you like
                     </p>
                         <footer>
-                            <Button text="Look it up" />
+                            <a href="/planner"><Button text="Look it up" /></a>
                         </footer>
                     </article>
                     <article>
@@ -47,7 +47,7 @@ export default class LandingPage extends React.Component {
                             calories
                     </p>
                         <footer>
-                            <Button text="Check it out" />
+                            <a href="/planner"><Button text="Check it out" /></a>
                         </footer>
                     </article>
                 </div>
