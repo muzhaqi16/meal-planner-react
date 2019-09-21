@@ -16,6 +16,6 @@ nav a {
 
 @media all and (max-width: 390px) {
     nav>li {
-        display: block;
+        padding: 10px 0;
     }
 }
