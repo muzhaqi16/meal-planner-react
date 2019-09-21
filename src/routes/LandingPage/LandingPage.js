@@ -9,7 +9,6 @@ export default class LandingPage extends React.Component {
                 <div className="hero">
                     <div className="hero-container">
                         <h1>Meal Planning Made Easy. <br />Start planing your meals today</h1>
-
                         <a href="/planner"> <Button text='Get Started' /></a>
                     </div>
                 </div>
