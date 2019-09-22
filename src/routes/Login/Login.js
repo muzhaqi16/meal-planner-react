@@ -36,8 +36,8 @@ export default class Login extends React.Component {
             <div className="login-page">
                 <form onSubmit={this.handleLogin} id='login-form'>
                     <h2>Log in</h2>
-                    <TextInput label='Username' id='user_name' />
-                    <TextInput label='Password' type='password' id="password" />
+                    <TextInput label='Username' id='user_name' placeholder="test" />
+                    <TextInput label='Password' type='password' id="password" placeholder="Test123!" />
                     <div role='alert'>
                         {error && <p className='red'>{error}</p>}
                     </div>
