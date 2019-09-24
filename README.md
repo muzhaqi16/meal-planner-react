@@ -17,11 +17,11 @@ Weekly Planning Page:
 
 Mobile View Page:
 
-![mobile planner](src/img/planner-mobile.png)
+![mobile planner](src/img/mobile-planner.png)
 
 Login Page:
 
-![login](src/img/login.png)
+![login](src/img/login-page.png)
 
 ## Loging In
 
