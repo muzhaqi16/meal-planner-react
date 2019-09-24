@@ -62,6 +62,9 @@ span{
         text-align: left;
         padding: 2px;
     }
+    .meal-time>span{
+        text-transform: capitalize;
+    }
     .meal-name {
         display: inline-block;
     }

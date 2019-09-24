@@ -3,39 +3,22 @@ import PropTypes from 'prop-types'
 import './Day.css'
 export default class Day extends React.Component {
     render() {
+        const mealTimes = ['breakfast', 'lunch', 'dinner'];
+        const mealViews = mealTimes.map(time =>
+            <li className="meal-time" key={time}>
+                <span className={time}>{time}</span>
+                {this.props.data[time] &&
+                    <span>{this.props.data[time].map((item =>
+                        <em key={item.id} className="meal-name">{item.name}</em>
+                    ))}
+                    </span>
+                }
+                {!this.props.data[time] && <span></span>}
+            </li>
+        );
         return (
             <ul className="day">
-                <li className="meal-time">
-                    <span className="breakfast">Breakfast</span>
-                    {this.props.data.breakfast &&
-                        <span>{this.props.data.breakfast.map((item =>
-                            <em key={item.id} className="meal-name">{item.name}</em>
-                        ))}
-                        </span>
-                    }
-                    {!this.props.data.breakfast && <span></span>}
-                </li>
-                <li className="meal-time">
-                    <span className="lunch"> Lunch  </span>
-                    {this.props.data.lunch &&
-                        <span>{this.props.data.lunch.map((item =>
-                            <em key={item.id} className="meal-name">{item.name}</em>
-                        ))}
-                        </span>
-                    }
-                    {/* this fixes the problem with layout when there is no data for lunch */}
-                    {!this.props.data.lunch && <span></span>}
-                </li>
-                <li className="meal-time last">
-                    <span className="dinner">Dinner </span>
-                    {this.props.data.dinner &&
-                        <span>{this.props.data.dinner.map((item =>
-                            <em key={item.id} className="meal-name">{item.name}</em>
-                        ))}
-                        </span>
-                    }
-                    {!this.props.data.dinner && <span></span>}
-                </li>
+                {mealViews}
             </ul>
         )
     }
