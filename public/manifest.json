@@ -1,6 +1,6 @@
 {
-  "short_name": "reactapp",
-  "name": "reactappsample",
+  "short_name": "Meal Planner",
+  "name": "Meal Planner - Meal Planning Made Easy",
   "icons": [
     {
       "src": "favicon.ico",
