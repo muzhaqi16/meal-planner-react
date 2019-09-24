@@ -19,9 +19,6 @@ nav>a {
     padding: 10px;
 }
 @media all and (max-width: 480px) {
-    nav{
-        text-align: right;
-    }
     nav a{
         display: block;
     }
