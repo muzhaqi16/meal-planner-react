@@ -40,7 +40,7 @@ export default class Week extends React.Component {
                 <div><span>{day}</span>
                     <p>{nextDay.getDate()}</p>
                 </div>
-                <Day data={this.props.data[this.formatDate(nextDay)]} />
+                <Day data={this.props.data[this.formatDate(nextDay)]} deleteMeal={this.props.deleteMeal} />
             </li>);
         })
         return (

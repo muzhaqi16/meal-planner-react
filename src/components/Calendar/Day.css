@@ -51,7 +51,19 @@ span{
     padding-right: 10px;
     display: block;
 }
-
+.meal-name:hover .delete-meal{
+    visibility:visible;
+}
+.delete-meal{
+    margin: 0;
+    padding-left:2px;
+    font-size: 1rem;
+    visibility: hidden;
+}
+.delete-meal:hover{
+    font-size: 1.2rem;
+    color: red;
+}
 
 @media all and (max-width: 480px) {
     .day{

@@ -89,6 +89,13 @@ export default class Planner extends React.Component {
         now.setDate(now.getDate() + days);
         return now;
     }
+    deleteMeal = (data) => {
+        const stateCopy = this.state.data;
+        delete stateCopy[data.date.date.slice(0, 10)][data.date.time][data.i];
+        this.setState({
+            data: stateCopy
+        })
+    }
     addMeal = (id, date, name, time, calories) => {
         let selected_day = {};
         if (!this.state.data[date]) {
@@ -119,7 +126,7 @@ export default class Planner extends React.Component {
         return (
             <>
                 {this.state.data &&
-                    <Calendar data={this.state.data} week={this.week} add={this.addMeal} />
+                    <Calendar data={this.state.data} week={this.week} add={this.addMeal} deleteMeal={this.deleteMeal} />
                 }
             </>
         )

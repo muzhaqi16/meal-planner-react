@@ -76,7 +76,7 @@ export default class Calendar extends React.Component {
                         </div>
                     }
                     <div className="days-of-week">
-                        <Week show={this.showInput} data={this.props.data} week={this.props.week} />
+                        <Week show={this.showInput} data={this.props.data} week={this.props.week} deleteMeal={this.props.deleteMeal} />
                     </div>
                 </div>
 
