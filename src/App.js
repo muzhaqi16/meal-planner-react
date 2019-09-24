@@ -20,8 +20,8 @@ class App extends React.Component {
           <Route path="/" exact component={LandingPage} />
           <PrivateRoute path="/planner" exact component={Planner} />
           <PrivateRoute path="/planner/:week" component={Planner} />
-          <PublicOnlyRoute path="/signin/" component={Login} />
-          <PublicOnlyRoute path="/signup/" component={Signup} />
+          <PublicOnlyRoute path="/signin" component={Login} />
+          <PublicOnlyRoute path="/signup" component={Signup} />
           <Footer />
         </div>
       </Router>
