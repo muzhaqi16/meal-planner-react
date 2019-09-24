@@ -74,9 +74,9 @@ li#meal-header {
     font-size: 2.65rem;
 }
 .header{
-    background-color: #ff69b4;
-    
-}.header>a{
+    background-color: #6cf;
+}
+.header>span{
     color: white;
 }
 

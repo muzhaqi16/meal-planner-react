@@ -4,21 +4,33 @@ header {
     align-items: center;
     padding: 0 10px;
     background-color: #285c89;
+    color: white;
 }
 
 header a {
     color: white;
 }
-
-nav a {
+.hamburger-icon{
+    margin: 0;
+    display: none;
+}
+nav>a {
     padding: 10px;
 }
-
 @media all and (max-width: 480px) {
+    nav{
+        text-align: right;
+    }
     nav a{
         display: block;
     }
     nav>a {
         padding: 5px 0;
+    }
+    .hamburger-icon{
+        display: block;
+    }
+    .hidden{
+        display: none;
     }
 }
