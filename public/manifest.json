@@ -1,6 +1,6 @@
 {
-  "short_name": "eactapp",
-  "name": "createreactapp",
+  "short_name": "reactapp",
+  "name": "reactappsample",
   "icons": [
     {
       "src": "favicon.ico",
