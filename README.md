@@ -17,7 +17,7 @@ Weekly Planning Page:
 
 Mobile View Page:
 
-![mobile planner](src/img/mobile-planner.png)
+![mobile planner](src/img/mobile-planner.PNG)
 
 Login Page:
 
