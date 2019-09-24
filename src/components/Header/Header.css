@@ -12,6 +12,7 @@ header a {
 }
 .hamburger-icon{
     margin: 0;
+    font-size: 1.5rem;
     display: none;
 }
 nav>a {
