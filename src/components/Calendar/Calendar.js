@@ -1,6 +1,7 @@
 import React from 'react';
 import TokenService from '../../services/token-service'
 import config from '../../config'
+import PlannerContext from '../../PlannerContext';
 import Week from './Week';
 import './Calendar.css'
 import TextInput from '../input/TextInput/TextInput'
@@ -13,8 +14,8 @@ export default class Calendar extends React.Component {
         this.state = {
             hidden: true
         }
-
     }
+    static contextType = PlannerContext;
     showInput = () => {
         this.setState({
             hidden: !this.state.hidden
@@ -46,7 +47,7 @@ export default class Calendar extends React.Component {
                 return res.json()
             })
             .then(data => {
-                this.props.add(data.id, newMeal.date, newMeal.name, newMeal.time, newMeal.calories)
+                this.context.addMeal(data.id, newMeal.date, newMeal.name, newMeal.time, newMeal.calories)
             })
             .catch(error => {
                 console.error(error)
@@ -76,7 +77,7 @@ export default class Calendar extends React.Component {
                         </div>
                     }
                     <div className="days-of-week">
-                        <Week show={this.showInput} data={this.props.data} week={this.props.week} deleteMeal={this.props.deleteMeal} />
+                        <Week show={this.showInput} week={this.props.week} />
                     </div>
                 </div>
 

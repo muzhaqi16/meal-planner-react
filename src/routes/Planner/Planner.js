@@ -2,6 +2,7 @@ import React from 'react';
 import config from '../../config'
 import TokenService from '../../services/token-service'
 import Calendar from '../../components/Calendar/Calendar'
+import PlannerContext from '../../PlannerContext';
 
 export default class Planner extends React.Component {
     constructor(props) {
@@ -89,6 +90,14 @@ export default class Planner extends React.Component {
         now.setDate(now.getDate() + days);
         return now;
     }
+    editMeal = (newValue, data) => {
+        console.log(newValue)
+        const stateCopy = this.state.data;
+        stateCopy[data.date.date.slice(0, 10)][data.date.time][data.i].name = newValue
+        this.setState({
+            data: stateCopy
+        })
+    }
     deleteMeal = (data) => {
         const stateCopy = this.state.data;
         delete stateCopy[data.date.date.slice(0, 10)][data.date.time][data.i];
@@ -123,11 +132,20 @@ export default class Planner extends React.Component {
         })
     }
     render() {
+        const contextValue = {
+            data: this.state.data,
+            addMeal: this.addMeal,
+            editMeal: this.editMeal,
+            deleteMeal: this.deleteMeal,
+            formatDate: this.formatDate
+        }
         return (
             <>
-                {this.state.data &&
-                    <Calendar data={this.state.data} week={this.week} add={this.addMeal} deleteMeal={this.deleteMeal} />
-                }
+                <PlannerContext.Provider value={contextValue}>
+                    {this.state.data &&
+                        <Calendar week={this.week} />
+                    }
+                </PlannerContext.Provider>
             </>
         )
     }

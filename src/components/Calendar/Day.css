@@ -54,14 +54,30 @@ span{
 .meal-name:hover .delete-meal{
     visibility:visible;
 }
-.delete-meal{
-    margin: 0;
-    padding-left:2px;
+.meal-name:hover .edit-meal{
+    visibility:visible;
+}
+.edit-meal{
+    margin:0 5px;
     font-size: 1rem;
     visibility: hidden;
 }
-.delete-meal:hover{
+.delete-meal{
+    margin:0 5px;
+    font-size: 1.1rem;
+    visibility: hidden;
+}
+.edit-meal:hover{
     font-size: 1.2rem;
+    color: red;
+}
+.edit-field{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5px;
+}
+.delete-meal:hover{
+    font-size: 1.5rem;
     color: red;
 }
 

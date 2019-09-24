@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons'
+import PlannerContext from '../../PlannerContext';
 import Day from './Day';
 import './Week.css'
 export default class Week extends React.Component {
@@ -9,25 +10,13 @@ export default class Week extends React.Component {
         this.state = {
             status: true
         }
-
     }
+    static contextType = PlannerContext;
     handleClick = () => {
         this.setState({
             status: !this.state.status
         })
         this.props.show()
-    }
-    formatDate = (date) => {
-        var d = new Date(date),
-            month = '' + (d.getMonth() + 1),
-            day = '' + d.getDate(),
-            year = d.getFullYear();
-
-        if (month.length < 2)
-            month = '0' + month;
-        if (day.length < 2)
-            day = '0' + day;
-        return [year, month, day].join('-');
     }
     render() {
         const currentWeek = new Date(this.props.week.currentWeek);
@@ -40,7 +29,7 @@ export default class Week extends React.Component {
                 <div><span>{day}</span>
                     <p>{nextDay.getDate()}</p>
                 </div>
-                <Day data={this.props.data[this.formatDate(nextDay)]} deleteMeal={this.props.deleteMeal} />
+                <Day data={this.context.data[this.context.formatDate(nextDay)]} />
             </li>);
         })
         return (
