@@ -27,7 +27,7 @@ export default class Login extends React.Component {
                 user_name.value = ''
                 password.value = '';
                 TokenService.saveAuthToken(res.authToken);
-                window.location.reload('/planner');
+                window.location.replace('/planner');
             })
             .catch(res => {
                 this.setState({ error: res.error, loading: false })
