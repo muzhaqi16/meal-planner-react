@@ -23,7 +23,7 @@ Login Page:
 
 ![login](src/img/login-page.png)
 
-## Loging In
+## Logging In
 
 You can register for an account or use `test` and `Test123!` as username and password
 
