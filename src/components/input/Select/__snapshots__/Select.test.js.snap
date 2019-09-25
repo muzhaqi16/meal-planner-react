@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select Component renders the UI as expected 1`] = `
+<div
+  className="select"
+>
+  <label>
+    Label
+  </label>
+  <select
+    id="defaultInput"
+  >
+    <option
+      value="Option 1"
+    >
+      Option 1
+    </option>
+  </select>
+</div>
+`;

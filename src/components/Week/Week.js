@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons'
 import PlannerContext from '../../PlannerContext';
-import Day from './Day';
+import Day from '../Day/Day';
 import './Week.css'
 export default class Week extends React.Component {
     constructor(props) {
@@ -12,6 +13,7 @@ export default class Week extends React.Component {
         }
     }
     static contextType = PlannerContext;
+
     handleClick = () => {
         this.setState({
             status: !this.state.status
@@ -64,6 +66,13 @@ export default class Week extends React.Component {
         )
     }
 }
+Week.propTypes = {
+    show: PropTypes.func
+}
 Week.defaultProps = {
-    week: new Date()
+    week: {
+        currentWeek: new Date(),
+        prevWeek: new Date(),
+        nextWeek: new Date()
+    }
 }

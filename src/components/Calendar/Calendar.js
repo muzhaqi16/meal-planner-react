@@ -2,7 +2,7 @@ import React from 'react';
 import TokenService from '../../services/token-service'
 import config from '../../config'
 import PlannerContext from '../../PlannerContext';
-import Week from './Week';
+import Week from '../Week/Week';
 import './Calendar.css'
 import TextInput from '../input/TextInput/TextInput'
 import Select from '../input/Select/Select'

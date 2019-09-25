@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Component renders the UI as expected 1`] = `
+<div
+  className="button"
+>
+  <button
+    type="submit"
+  >
+    Button
+  </button>
+</div>
+`;
