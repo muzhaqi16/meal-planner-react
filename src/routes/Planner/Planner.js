@@ -91,7 +91,6 @@ export default class Planner extends React.Component {
         return now;
     }
     editMeal = (newValue, data) => {
-        console.log(newValue)
         const stateCopy = this.state.data;
         stateCopy[data.date.date.slice(0, 10)][data.date.time][data.i].name = newValue
         this.setState({
