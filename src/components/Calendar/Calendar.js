@@ -47,7 +47,8 @@ export default class Calendar extends React.Component {
                 return res.json()
             })
             .then(data => {
-                this.context.addMeal(data.id, newMeal.date, newMeal.name, newMeal.time, newMeal.calories)
+                newMeal.id = data.id;
+                this.context.addMeal(newMeal)
             })
             .catch(error => {
                 console.error(error)

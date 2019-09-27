@@ -90,22 +90,25 @@ export default class Planner extends React.Component {
         now.setDate(now.getDate() + days);
         return now;
     }
-    editMeal = (newValue) => {
-        //const stateCopy = this.state.data;
-        // delete stateCopy[newValuedate.slice(0, 10)][data.date.time][data.i];
-        // stateCopy[newValue.date][newValue.time][newValue.i] = newValue
-        // this.setState({
-        //     data: stateCopy
-        // })
+    editMeal = (newMeal, oldMeal) => {
+        //get the old meal data in case the meal is moved to a different date or time of day
+        oldMeal.date = oldMeal.date.slice(0, 10);
+        newMeal.user_id = oldMeal.user_id;
+        this.deleteMeal(oldMeal, newMeal.i);
+        this.addMeal(newMeal);
     }
-    deleteMeal = (data) => {
+    deleteMeal = (data, i = 0) => {
         const stateCopy = this.state.data;
-        delete stateCopy[data.date.date.slice(0, 10)][data.date.time][data.i];
+        delete stateCopy[data.date.slice(0, 10)][data.time][i];
         this.setState({
             data: stateCopy
         })
     }
-    addMeal = (id, date, name, time, calories) => {
+    addMeal = (data) => {
+        const stateCopy = this.state.data;
+
+        let { id, date, name, time, calories } = data;
+
         let selected_day = {};
         if (!this.state.data[date]) {
             selected_day = {
@@ -120,12 +123,16 @@ export default class Planner extends React.Component {
         } else {
             selected_day = this.state.data[date];
             if (selected_day[time]) {
-                selected_day[time] = [...selected_day[time], { id, date, name, time, calories }]
+                if (selected_day[time][0] !== undefined) {
+                    selected_day[time] = [...selected_day[time], { id, date, name, time, calories }]
+                } else {
+                    selected_day[time] = [{ id, date, name, time, calories }]
+                }
             } else {
                 selected_day[time] = [{ id, date, name, time, calories }]
             }
         }
-        const stateCopy = this.state.data;
+
         stateCopy[date] = selected_day;
         this.setState({
             data: stateCopy

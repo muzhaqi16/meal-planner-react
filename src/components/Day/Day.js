@@ -18,12 +18,20 @@ export default class Day extends React.Component {
     }
     static contextType = PlannerContext;
 
-    showModal = (e, id) => {
+    showModal = (e, data, index) => {
+        data.i = index;
         this.setState({
             show: !this.state.show,
-            id: id
+            id: data.id,
+            oldData: data,
         });
     };
+    closeModal = () => {
+        this.setState({
+            show: !this.state.show,
+            oldData: {}
+        })
+    }
     onChange = e => {
         const userInput = e.currentTarget.value;
         this.setState({
@@ -36,7 +44,7 @@ export default class Day extends React.Component {
         const newMeal = {
             id: this.state.id,
             "name": food_name.value,
-            "date": date.value,
+            "date": date.value.slice(0, 10),
             "time": meal_time.value,
             "calories": Number(calories.value)
         }
@@ -58,8 +66,8 @@ export default class Day extends React.Component {
                 this.setState({ error })
             })
         newMeal.i = dayIndex.value;
-        this.context.editMeal(newMeal);
-        this.setState({ edit: false, show: !this.state.show })
+        this.context.editMeal(newMeal, this.state.oldData);
+        this.setState({ edit: false, show: !this.state.show, oldData: {} })
     }
     handleDelete = (id, data) => {
         fetch(config.API_ENDPOINT + '/meal/' + id, {
@@ -78,7 +86,7 @@ export default class Day extends React.Component {
                 console.error(error)
                 this.setState({ error })
             })
-        this.context.deleteMeal(data);
+        this.context.deleteMeal(data.date, data.i);
     }
     render() {
         const mealTimes = ['breakfast', 'lunch', 'dinner'];
@@ -90,9 +98,9 @@ export default class Day extends React.Component {
                         if (this.state.show && this.state.id === item.id) {
                             return <em key={item.id} className="meal-name">{item.name}
                                 <form onSubmit={this.handleEdit}>
-                                    <Modal key={item.id} onClose={this.showModal} show={this.state.show} title="Edit">
+                                    <Modal key={item.id} onClose={this.closeModal} show={this.state.show} title="Edit">
 
-                                        <TextInput label="Select Date" type="date" id="date" defaultValue={this.context.formatDate(item.date)} />
+                                        <TextInput label="Select Date" type="date" id="date" defaultValue={item.date.slice(0, 10)} />
 
                                         <TextInput label="Food" id="food_name" autoFocus defaultValue={item.name} />
 
@@ -100,22 +108,17 @@ export default class Day extends React.Component {
 
                                         <TextInput label="Calories" id="calories" defaultValue={item.calories} />
                                         <input type="hidden" id="dayIndex" name="dayIndex" value={index} />
-                                        {/* <input className="edit-field"
-                                    autoFocus
-                                    key={item.id}
-                                    type="text"
-                                    defaultValue={item.name}
-                                    onKeyUp={(e) => (e.keyCode === 13) ? this.handleEdit(e, item.id, { date: this.props.data[time][index], i: index }) : false}
-                                    onBlur={(e) => this.handleEdit(e, item.id, { date: this.props.data[time][index], i: index })} /> */}
                                     </Modal></form></em>
                         }
-                        return (<em key={item.id} className="meal-name">{item.name}
-                            {/* <FontAwesomeIcon icon={faPen} className="edit-meal" title="Edit" onClick={() => this.setState({ edit: true, id: item.id })} /> */}
+                        return (
+                            <em key={item.id}
+                                className="meal-name">{item.name} <strong className="calories">{item.calories} Cals</strong>
 
-                            <FontAwesomeIcon icon={faPen} className="edit-meal" title="Edit" onClick={(e) => this.showModal(e, item.id)} />
+                                <FontAwesomeIcon icon={faPen} className="edit-meal" title="Edit" onClick={(e) => this.showModal(e, item, index)} />
 
-                            <FontAwesomeIcon icon={faTimes} title="Delete" className="delete-meal" onClick={() => { let r = window.confirm('Are you sure ? '); if (r) this.handleDelete(item.id, { date: this.props.data[time][index], i: index }) }} />
-                        </em>)
+                                <FontAwesomeIcon icon={faTimes} title="Delete" className="delete-meal" onClick={() => { let r = window.confirm('Are you sure ? '); if (r) this.handleDelete(item.id, { date: this.props.data[time][index], i: index }) }} />
+
+                            </em>)
                     }
 
                     ))}

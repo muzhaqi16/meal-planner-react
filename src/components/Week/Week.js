@@ -24,7 +24,6 @@ export default class Week extends React.Component {
         const currentWeek = new Date(this.props.week.currentWeek);
         const nextDay = new Date(this.props.week.currentWeek);
         const daysOfWeek = ['Mon', 'Tue', "Wed", "Thur", "Fri", "Sat", "Sun"];
-
         let weekData = daysOfWeek.map(day => {
             nextDay.setDate(nextDay.getDate() + 1)
             return (<li key={day} className="day-name">
