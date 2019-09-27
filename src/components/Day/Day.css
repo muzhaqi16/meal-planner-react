@@ -99,6 +99,7 @@ span{
     }
     .meal-name {
         display: inline-block;
+        padding-right: 0;
     }
     .breakfast,.lunch,.dinner{
         display: inline-block;

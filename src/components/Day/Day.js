@@ -18,7 +18,7 @@ export default class Day extends React.Component {
     }
     static contextType = PlannerContext;
 
-    showModal = (e, data, index) => {
+    showModal = (e, data = {}, index = 0) => {
         data.i = index;
         this.setState({
             show: !this.state.show,
@@ -30,12 +30,6 @@ export default class Day extends React.Component {
         this.setState({
             show: !this.state.show,
             oldData: {}
-        })
-    }
-    onChange = e => {
-        const userInput = e.currentTarget.value;
-        this.setState({
-            mealName: userInput
         })
     }
     handleEdit = (ev) => {
@@ -94,7 +88,7 @@ export default class Day extends React.Component {
             <li className="meal-time" key={time}>
                 <span className={time}>{time}</span>
                 {this.props.data[time] &&
-                    <span>{this.props.data[time].map(((item, index) => {
+                    <span className="individual-meals">{this.props.data[time].map(((item, index) => {
                         if (this.state.show && this.state.id === item.id) {
                             return <em key={item.id} className="meal-name">{item.name}
                                 <form onSubmit={this.handleEdit}>
@@ -123,7 +117,9 @@ export default class Day extends React.Component {
 
                     ))}
                     </span>
+
                 }
+                {/* Fix the mobile view by keeping the space for each day time */}
                 {!this.props.data[time] && <span></span>}
             </li>
         );
