@@ -28,10 +28,10 @@ export default class LandingPage extends React.Component {
                     </article>
                     <article>
                         <header>
-                            <h3>Save Recipes</h3>
+                            <h3>Track Calories</h3>
                         </header>
                         <p>
-                            Save your favourite recipes to your list so next time you know what you like
+                            Our app help you keep track of calories that you consume for each meal during the day
                     </p>
                         <footer>
                             <a href="/planner"><Button text="Look it up" /></a>
