@@ -34,10 +34,10 @@ export default class Planner extends React.Component {
         }
         return groupedData;
     }
-    formatDate = (date) => {
+    formatDate = (date, add = 0) => {
         var d = new Date(date),
             month = '' + (d.getMonth() + 1),
-            day = '' + d.getDate(),
+            day = '' + (d.getDate() + add),
             year = d.getFullYear();
 
         if (month.length < 2)

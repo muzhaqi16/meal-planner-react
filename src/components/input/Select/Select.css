@@ -1,6 +1,7 @@
 .select {
     font-size: 16px;
-    padding: 0;
+    margin: 0;
+    text-align: left;
 }
 
 .select>label {
