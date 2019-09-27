@@ -71,7 +71,7 @@ export default class Day extends React.Component {
                         }
                         return (<em key={item.id} className="meal-name">{item.name}
                             <FontAwesomeIcon icon={faPen} className="edit-meal" title="Edit" onClick={() => this.setState({ edit: true, id: item.id })} />
-                            <FontAwesomeIcon icon={faTimes} title="Delete" className="delete-meal" onClick={() => this.handleDelete(item.id, { date: this.props.data[time][index], i: index })} />
+                            <FontAwesomeIcon icon={faTimes} title="Delete" className="delete-meal" onClick={() => { let r = window.confirm('Are you sure ? '); if (r) this.handleDelete(item.id, { date: this.props.data[time][index], i: index }) }} />
                         </em>)
                     }
 
