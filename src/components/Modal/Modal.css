@@ -29,7 +29,7 @@
 }
 .modal .content {
   width: 100%;
-  padding: 0 5px;
+  padding: 10px 10px;
 }
 .modal .actions {
   border-top: 1px solid #ccc;

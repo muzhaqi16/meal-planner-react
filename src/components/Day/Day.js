@@ -80,7 +80,7 @@ export default class Day extends React.Component {
                 {this.props.data[time] &&
                     <span>{this.props.data[time].map(((item, index) => {
                         if (this.state.show && this.state.id === item.id) {
-                            return <Modal key={item.id} onSave={() => this.handleEdit(item.id, { date: this.props.data[time][index], i: index })} onClose={this.showModal} show={this.state.show} title="Edit">
+                            return <em key={item.id} className="meal-name">{item.name}<Modal key={item.id} onSave={() => this.handleEdit(item.id, { date: this.props.data[time][index], i: index })} onClose={this.showModal} show={this.state.show} title="Edit">
                                 <TextInput label="Select Date" type="date" id="date" onChange={this.onChange} value={this.context.formatDate(item.date, 1)} />
 
                                 <TextInput label="Food" id="food_name" autoFocus value={item.name} onChange={this.onChange} />
@@ -96,7 +96,7 @@ export default class Day extends React.Component {
                                     defaultValue={item.name}
                                     onKeyUp={(e) => (e.keyCode === 13) ? this.handleEdit(e, item.id, { date: this.props.data[time][index], i: index }) : false}
                                     onBlur={(e) => this.handleEdit(e, item.id, { date: this.props.data[time][index], i: index })} /> */}
-                            </Modal>
+                            </Modal></em>
                         }
                         return (<em key={item.id} className="meal-name">{item.name}
                             {/* <FontAwesomeIcon icon={faPen} className="edit-meal" title="Edit" onClick={() => this.setState({ edit: true, id: item.id })} /> */}
