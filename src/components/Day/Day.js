@@ -30,28 +30,36 @@ export default class Day extends React.Component {
             mealName: userInput
         })
     }
-    handleEdit = (id, data) => {
-        const newValue = this.state.mealName;
-        console.log(newValue)
-        // fetch(config.API_ENDPOINT + '/meal/' + id, {
-        //     method: 'PATCH',
-        //     body: JSON.stringify({ "name": newValue }),
-        //     headers: {
-        //         'content-type': 'application/json',
-        //         'authorization': `bearer ${TokenService.getAuthToken()}`
-        //     }
-        // })
-        //     .then(res => {
-        //         if (!res.ok) {
-        //             return res.json().then(error => Promise.reject(error))
-        //         }
-        //     })
-        //     .catch(error => {
-        //         console.error(error)
-        //         this.setState({ error })
-        //     })
-        // this.context.editMeal(newValue, data);
-        // this.setState({ edit: false })
+    handleEdit = (ev) => {
+        ev.preventDefault();
+        const { food_name, meal_time, calories, date, dayIndex } = ev.target;
+        const newMeal = {
+            id: this.state.id,
+            "name": food_name.value,
+            "date": date.value,
+            "time": meal_time.value,
+            "calories": Number(calories.value)
+        }
+        fetch(config.API_ENDPOINT + '/meal/' + this.state.id, {
+            method: 'PATCH',
+            body: JSON.stringify(newMeal),
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            }
+        })
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(error => Promise.reject(error))
+                }
+            })
+            .catch(error => {
+                console.error(error)
+                this.setState({ error })
+            })
+        newMeal.i = dayIndex.value;
+        this.context.editMeal(newMeal);
+        this.setState({ edit: false, show: !this.state.show })
     }
     handleDelete = (id, data) => {
         fetch(config.API_ENDPOINT + '/meal/' + id, {
@@ -80,23 +88,26 @@ export default class Day extends React.Component {
                 {this.props.data[time] &&
                     <span>{this.props.data[time].map(((item, index) => {
                         if (this.state.show && this.state.id === item.id) {
-                            return <em key={item.id} className="meal-name">{item.name}<Modal key={item.id} onSave={() => this.handleEdit(item.id, { date: this.props.data[time][index], i: index })} onClose={this.showModal} show={this.state.show} title="Edit">
-                                <TextInput label="Select Date" type="date" id="date" onChange={this.onChange} value={this.context.formatDate(item.date, 1)} />
+                            return <em key={item.id} className="meal-name">{item.name}
+                                <form onSubmit={this.handleEdit}>
+                                    <Modal key={item.id} onClose={this.showModal} show={this.state.show} title="Edit">
 
-                                <TextInput label="Food" id="food_name" autoFocus value={item.name} onChange={this.onChange} />
+                                        <TextInput label="Select Date" type="date" id="date" defaultValue={this.context.formatDate(item.date)} />
 
-                                <Select label="Time" options={['breakfast', 'lunch', 'dinner']} id="meal_time" defaultValue={item.time} />
+                                        <TextInput label="Food" id="food_name" autoFocus defaultValue={item.name} />
 
-                                <TextInput label="Calories" id="calories" onChange={this.onChange} value={item.calories} />
+                                        <Select label="Time" options={['breakfast', 'lunch', 'dinner']} id="meal_time" defaultValue={item.time} />
 
-                                {/* <input className="edit-field"
+                                        <TextInput label="Calories" id="calories" defaultValue={item.calories} />
+                                        <input type="hidden" id="dayIndex" name="dayIndex" value={index} />
+                                        {/* <input className="edit-field"
                                     autoFocus
                                     key={item.id}
                                     type="text"
                                     defaultValue={item.name}
                                     onKeyUp={(e) => (e.keyCode === 13) ? this.handleEdit(e, item.id, { date: this.props.data[time][index], i: index }) : false}
                                     onBlur={(e) => this.handleEdit(e, item.id, { date: this.props.data[time][index], i: index })} /> */}
-                            </Modal></em>
+                                    </Modal></form></em>
                         }
                         return (<em key={item.id} className="meal-name">{item.name}
                             {/* <FontAwesomeIcon icon={faPen} className="edit-meal" title="Edit" onClick={() => this.setState({ edit: true, id: item.id })} /> */}

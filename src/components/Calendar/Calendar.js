@@ -69,7 +69,7 @@ export default class Calendar extends React.Component {
 
                                 <Select label="Time" options={['breakfast', 'lunch', 'dinner']} id="meal_time" />
 
-                                <TextInput label="Calories" id="calories" />
+                                <TextInput type="number" label="Calories" id="calories" defaultValue="0" />
 
                                 <Buttton text="Add Meal" type='submit' />
 

@@ -10,7 +10,7 @@ export default class TextInput extends React.Component {
         return (
             <div className="select">
                 <label htmlFor={this.props.inputId}>{this.props.label}</label>
-                <select id={this.props.id}>
+                <select id={this.props.id} defaultValue={this.props.defaultValue}>
                     {result}
                 </select>
             </div>
@@ -25,5 +25,6 @@ TextInput.propTypes = {
 TextInput.defaultProps = {
     label: 'Label',
     id: 'defaultInput',
-    options: ['Option 1']
+    options: ['Option 1'],
+    defaultValue: ""
 }

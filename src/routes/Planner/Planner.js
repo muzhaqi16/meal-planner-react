@@ -90,12 +90,13 @@ export default class Planner extends React.Component {
         now.setDate(now.getDate() + days);
         return now;
     }
-    editMeal = (newValue, data) => {
-        const stateCopy = this.state.data;
-        stateCopy[data.date.date.slice(0, 10)][data.date.time][data.i].name = newValue
-        this.setState({
-            data: stateCopy
-        })
+    editMeal = (newValue) => {
+        //const stateCopy = this.state.data;
+        // delete stateCopy[newValuedate.slice(0, 10)][data.date.time][data.i];
+        // stateCopy[newValue.date][newValue.time][newValue.i] = newValue
+        // this.setState({
+        //     data: stateCopy
+        // })
     }
     deleteMeal = (data) => {
         const stateCopy = this.state.data;
