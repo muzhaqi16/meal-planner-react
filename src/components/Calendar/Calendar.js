@@ -12,7 +12,7 @@ export default class Calendar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            hidden: true
+            hidden: true,
         }
     }
     static contextType = PlannerContext;
