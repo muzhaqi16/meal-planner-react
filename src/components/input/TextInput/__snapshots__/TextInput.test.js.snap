@@ -8,7 +8,9 @@ exports[`TextInput Component renders the UI as expected 1`] = `
     Label
   </label>
   <input
+    defaultValue=""
     id="defaultInput"
+    onChange={[Function]}
     placeholder=""
     type="text"
   />

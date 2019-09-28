@@ -8,6 +8,7 @@ exports[`Select Component renders the UI as expected 1`] = `
     Label
   </label>
   <select
+    defaultValue=""
     id="defaultInput"
   >
     <option
