@@ -17,7 +17,7 @@ export default class Day extends React.Component {
         mealName: ""
     }
     static contextType = PlannerContext;
-
+    // show the modal and keep track of the previous data for the meal
     showModal = (e, data = {}, index = 0) => {
         data.i = index;
         this.setState({
@@ -26,12 +26,14 @@ export default class Day extends React.Component {
             oldData: data,
         });
     };
+    //close modal and remove the previous meal data
     closeModal = () => {
         this.setState({
             show: !this.state.show,
             oldData: {}
         })
     }
+    //when a meal is edited update the data in the db and in state
     handleEdit = (ev) => {
         ev.preventDefault();
         const { food_name, meal_time, calories, date, dayIndex } = ev.target;
@@ -56,13 +58,16 @@ export default class Day extends React.Component {
                 }
             })
             .catch(error => {
-                console.error(error)
                 this.setState({ error })
             })
+        //keep track of the index in the array of the edited meal
+        //for when the location is not changed in the day
         newMeal.i = dayIndex.value;
         this.context.editMeal(newMeal, this.state.oldData);
+        //hide the modal
         this.setState({ edit: false, show: !this.state.show, oldData: {} })
     }
+    //delete a meal from the database and update state
     handleDelete = (id, data) => {
         fetch(config.API_ENDPOINT + '/meal/' + id, {
             method: 'DELETE',
@@ -77,18 +82,21 @@ export default class Day extends React.Component {
                 }
             })
             .catch(error => {
-                console.error(error)
                 this.setState({ error })
             })
         this.context.deleteMeal(data.date, data.i);
     }
     render() {
+        //we keep track of meal by meal time
         const mealTimes = ['breakfast', 'lunch', 'dinner'];
+
         const mealViews = mealTimes.map(time =>
             <li className="meal-time" key={time}>
                 <span className={time}>{time}</span>
+                {/* if there is any data for that meal time of the day */}
                 {this.props.data[time] &&
                     <span className="individual-meals">{this.props.data[time].map(((item, index) => {
+                        // show the modal if the edit button has been clicked and the state has been updated
                         if (this.state.show && this.state.id === item.id) {
                             return <em key={item.id} className="meal-name">{item.name}
                                 <form onSubmit={this.handleEdit}>
@@ -105,8 +113,7 @@ export default class Day extends React.Component {
                                     </Modal></form></em>
                         }
                         return (
-                            <em key={item.id}
-                                className="meal-name">{item.name} <strong className="calories">{item.calories} Cals</strong>
+                            <em key={item.id} className="meal-name">{item.name} <strong className="calories">{item.calories} Cals</strong>
 
                                 <FontAwesomeIcon icon={faPen} className="edit-meal" title="Edit" onClick={(e) => this.showModal(e, item, index)} />
 

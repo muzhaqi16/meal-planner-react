@@ -12,18 +12,23 @@ export default class Calendar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            //keep track of when to show the add meal menu
             hidden: true,
         }
     }
     static contextType = PlannerContext;
+
+    //shows and hidess the add meal menu
     showInput = () => {
         this.setState({
             hidden: !this.state.hidden
         })
     }
+    //Adds a meal to the database and to the state
     handleAdd = (ev) => {
         ev.preventDefault();
         const { food_name, meal_time, calories, date } = ev.target;
+        //create the meal object from user input
         const newMeal = {
             "name": food_name.value,
             "date": date.value,
@@ -31,7 +36,7 @@ export default class Calendar extends React.Component {
             "calories": Number(calories.value)
         }
         this.setState({ error: null })
-
+        //make a POST request to the db with the new meal object as json
         fetch(config.API_ENDPOINT + '/meal', {
             method: 'POST',
             body: JSON.stringify(newMeal),
@@ -47,6 +52,8 @@ export default class Calendar extends React.Component {
                 return res.json()
             })
             .then(data => {
+                //get the returned id from the db and add it to the meal object
+                //and send it to the addMeal function to add it to the state
                 newMeal.id = data.id;
                 this.context.addMeal(newMeal)
             })

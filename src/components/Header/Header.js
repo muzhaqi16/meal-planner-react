@@ -36,11 +36,18 @@ export default class Header extends React.Component {
                 <div id="logo">
                     <h2><a href="/">Meal Planner</a></h2>
                 </div>
-                <FontAwesomeIcon title={this.state.mobile ? "Close" : "Open"} className="hamburger-icon" icon={this.state.mobile ? faTimes : faBars} onClick={() => this.setState({ mobile: !this.state.mobile })} />
+                {/* Decide when to show the open or the close button for the menu when in mobile view */}
+                <FontAwesomeIcon
+                    title={this.state.mobile ? "Close" : "Open"}
+                    className="hamburger-icon"
+                    icon={this.state.mobile ? faTimes : faBars}
+                    onClick={() => this.setState({ mobile: !this.state.mobile })} />
+
                 <nav role="navigation" className={this.state.mobile ? "" : "hidden"}>
                     <Link to="/">Home</Link>
 
                     <Link to="/planner">Plan&nbsp;It</Link>
+                    {/* Show login or logout based on the token saved in session */}
                     {TokenService.hasAuthToken()
                         ? this.renderLogoutLink()
                         : this.renderLoginLink()}

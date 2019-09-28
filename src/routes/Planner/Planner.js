@@ -14,18 +14,20 @@ export default class Planner extends React.Component {
         }
         this.state = {}
     }
+    //this function returns the the date for Monday for any given date within the week.
     getMonday(d) {
         d = new Date(d);
         var day = d.getDay(),
             diff = d.getDate() - day + (day === 0 ? -6 : 1); // adjust when day is sunday
         return new Date(d.setDate(diff));
     }
+    //groups an json object by a given key
     groupData = (jsonData, by) => {
         var groupedData = {};
-
         // Building grouped dates object where the keys are dates and the 
         // values are the original objects
         for (var key in jsonData) {
+            //keep only the year-month-date from a date
             var group = jsonData[key][by].slice(0, 10);
             if (!groupedData[group]) {
                 groupedData[group] = [];
@@ -34,6 +36,8 @@ export default class Planner extends React.Component {
         }
         return groupedData;
     }
+    //The format of the date that i use is yyyy-mm-dd
+    //so this function formats and given date to that format
     formatDate = (date, add = 0) => {
         var d = new Date(date),
             month = '' + (d.getMonth() + 1),
@@ -46,6 +50,7 @@ export default class Planner extends React.Component {
             day = '0' + day;
         return [year, month, day].join('-');
     }
+    //get all the meals from the database for the current week
     fetchData = () => {
         fetch(config.API_ENDPOINT + '/meal/' + this.week.currentWeek, {
             method: 'GET',
@@ -61,20 +66,27 @@ export default class Planner extends React.Component {
                 return res.json()
             })
             .then(data => {
+                //each meal is stored on its own row on the database as 
+                // id, user_id, name(of meal), time(of day), date, calories
+                // so we need to group all the data that we receive by date>time
+                //First we group by the date
                 const groupByDate = this.groupData(data, 'date');
                 const dateKeys = Object.keys(groupByDate);
+                //Then we group by the time of day
                 dateKeys.forEach(date => {
                     groupByDate[date] = this.groupData(groupByDate[date], 'time')
                 })
+                //Save the date in state
                 this.setState({
                     data: groupByDate
                 })
             })
             .catch(error => {
-                console.error(error)
                 this.setState({ hasError: error })
             })
     }
+    //once the app is loaded we set the state for current week, previous week
+    //and the next week and then get all the meals for current week from the db
     componentDidMount() {
         if (this.props.match.params.week) {
             this.week.currentWeek = this.props.match.params.week

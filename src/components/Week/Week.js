@@ -13,7 +13,7 @@ export default class Week extends React.Component {
         }
     }
     static contextType = PlannerContext;
-
+    //handle click for when the add button is called to show or hide the add menu
     handleClick = () => {
         this.setState({
             status: !this.state.status
@@ -21,10 +21,12 @@ export default class Week extends React.Component {
         this.props.show()
     }
     render() {
+        // keep track of the current week and next day for when showing the meals
         const currentWeek = new Date(this.props.week.currentWeek);
         const nextDay = new Date(this.props.week.currentWeek);
         const daysOfWeek = ['Mon', 'Tue', "Wed", "Thur", "Fri", "Sat", "Sun"];
         let weekData = daysOfWeek.map(day => {
+            // update next day as we loop through each day
             nextDay.setDate(nextDay.getDate() + 1)
             return (<li key={day} className="day-name">
                 <div><span>{day}</span>

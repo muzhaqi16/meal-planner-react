@@ -12,16 +12,20 @@ export default class Signup extends React.Component {
         ev.preventDefault();
         const { history } = this.props
         const { first_name, last_name, email, user_name, password, cpassword } = ev.target
+        //check if username is empty
         if (user_name.value === "") {
             return this.setState({ error: "Username can not be empty" })
         }
+        //check if password is empty
         if (password.value === "" || password.value.length < 6) {
             return this.setState({ error: "Password needs to be at least 6 characters long" })
         }
+        //check if the password do matche
         if (password.value !== cpassword.value) {
             return this.setState({ error: "Password doesn't match" })
         }
         this.setState({ error: null })
+        //send the information about the new user to the backend and make a POST request
         AuthApiService.postUser({
             user_name: user_name.value,
             password: password.value,
