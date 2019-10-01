@@ -9,7 +9,7 @@ import TextArea from '../input/TextArea/TextArea'
 import Select from '../input/Select/Select'
 import Buttton from '../input/Button/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faSave } from '@fortawesome/free-solid-svg-icons'
 
 export default class Calendar extends React.Component {
     constructor(props) {
@@ -33,7 +33,12 @@ export default class Calendar extends React.Component {
             hidden: !this.state.hidden
         })
     }
-    saveRecipe = (recipe) => {
+    saveRecipe = () => {
+        const recipe = {
+            name: this.state.recipeName,
+            details: this.state.recipeDetails,
+            calories: this.state.recipeCalories
+        };
         fetch(config.API_ENDPOINT + '/recipes', {
             method: 'POST',
             body: JSON.stringify(recipe),
@@ -84,11 +89,6 @@ export default class Calendar extends React.Component {
                     //and send it to the addMeal function to add it to the state
                     newMeal.id = data.id;
                     newMeal.i = 0;
-                    this.saveRecipe({
-                        name: data.name,
-                        details: data.details,
-                        calories: data.calories
-                    });
                     this.context.addMeal(newMeal)
                 })
                 .catch(error => {
@@ -177,10 +177,15 @@ export default class Calendar extends React.Component {
                                     {searchResults}
                                 </ul>
                                 <TextArea label="Details" value={this.state.recipeDetails} placeholder="Enter recipe details..." id="food_details" onChange={ev => this.handleChange(ev)} />
+                                <div className="search-bar">
+                                    <TextInput type="number" label="Calories" id="calories" value={this.state.recipeCalories} onChange={ev => this.handleChange(ev)} />
+                                    <FontAwesomeIcon role="button" className="search-icon" onClick={this.saveRecipe} icon={faSave} />
+                                </div>
+
                                 <TextInput label="Select Date" type="date" id="date" required={true} />
                                 <Select label="Time" options={['breakfast', 'lunch', 'dinner']} id="meal_time" />
 
-                                <TextInput type="number" label="Calories" id="calories" value={this.state.recipeCalories} onChange={ev => this.handleChange(ev)} />
+
 
                                 <Buttton text="Add Meal" type='submit' />
 
