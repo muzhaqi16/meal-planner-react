@@ -28,82 +28,105 @@ li.meal-time {
     justify-content: space-between;
     overflow: auto;
 }
-span{
+
+span {
     flex: 2;
 }
-.breakfast,.lunch,.dinner{
+
+.breakfast,
+.lunch,
+.dinner {
     margin-right: 10px;
     align-self: center;
     height: 100%;
     display: none;
     flex: 1;
 }
-.breakfast{
-    border-right:5px solid blue;
+
+.breakfast {
+    border-right: 5px solid blue;
 }
-.lunch{
-    border-right:5px solid green;
+
+.lunch {
+    border-right: 5px solid green;
 }
-.dinner{
-    border-right:5px solid red;
+
+.dinner {
+    border-right: 5px solid red;
 }
+
 .meal-name {
     text-transform: capitalize;
     padding-right: 10px;
     font-size: 0.9rem;
     display: block;
 }
-.calories{
+
+.calories {
     font-size: 0.8rem;
-    color:green;
+    color: green;
 }
-.meal-name:hover .delete-meal{
-    visibility:visible;
+
+.meal-name:hover .delete-meal {
+    visibility: visible;
 }
-.meal-name:hover .edit-meal{
-    visibility:visible;
+
+.meal-name:hover .edit-meal {
+    visibility: visible;
 }
-.edit-meal{
-    margin:0 5px;
+
+.edit-meal {
+    margin: 0 5px;
     font-size: 1rem;
     visibility: hidden;
 }
-.delete-meal{
-    margin:0 5px;
+
+.delete-meal {
+    margin: 0 5px;
     font-size: 1.1rem;
     visibility: hidden;
 }
-.edit-meal:hover{
+
+.edit-meal:hover {
     font-size: 1.2rem;
     color: red;
 }
-.edit-field{
+
+.edit-field {
     box-sizing: border-box;
     width: 100%;
     padding: 5px;
 }
-.delete-meal:hover{
+
+.delete-meal:hover {
     font-size: 1.5rem;
     color: red;
 }
 
 @media all and (max-width: 480px) {
-    .day{
-        
-    border-right:none;
+    .day {
+
+        border-right: none;
     }
+
     li.meal-time {
         text-align: left;
         padding: 2px;
+        overflow: unset;
     }
-    .meal-time>span{
+
+    .meal-time>span {
         text-transform: capitalize;
     }
+
     .meal-name {
         display: inline-block;
         padding-right: 0;
     }
-    .breakfast,.lunch,.dinner{
+
+    .breakfast,
+    .lunch,
+    .dinner {
         display: inline-block;
     }
 }

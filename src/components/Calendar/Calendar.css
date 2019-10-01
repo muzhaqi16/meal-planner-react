@@ -26,17 +26,20 @@ li {
 }
 
 .food-log-form {
-    min-width: 250px;;
+    min-width: 250px;
+    ;
     padding: 0 10px;
 }
 
 .input {
     text-align: left;
 }
-.food-log-form{
+
+.food-log-form {
     width: 100%;
     align-self: flex-start;
 }
+
 .food-log-form>h2 {
     text-align: center;
     color: #33b5e5;
@@ -44,48 +47,65 @@ li {
     font-weight: 400;
     line-height: 1;
 }
-.food-log-form>.button{
-    margin:10px 0;
+
+.food-log-form>.button {
+    margin: 10px 0;
 }
+
 .days-of-week {
     width: 100%;
     color: white;
     display: flex;
 }
-svg{
+
+svg {
     margin: 10px;
 }
-svg:hover{
-    color: #ff69b4;;
+
+svg:hover {
+    color: #ff69b4;
+    ;
 }
-.search-bar{
+
+.search-bar {
     display: flex;
     align-items: center;
 }
-.search-bar>div{
+
+.search-bar>div {
     flex: 20;
 }
-svg.search-icon{
+
+svg.search-icon {
     cursor: pointer;
     flex: 2;
     padding: 5px 10px;
     width: 40px;
-    height: 40px;;
+    height: 40px;
+    ;
     background-color: #428bca;
     color: white;
     margin: 20px 10px 0 10px;
     font-size: 1.3rem;
 }
-.search-results>li{
+
+.search-results>li {
     display: block;
     padding: 5px;
     cursor: pointer;
     margin: 5px 0;
 }
-.error>p{
+
+.info {
+    color: green;
+}
+
+.error>p,
+info>p {
     margin: 0 0 10px 0;
     padding: 0;
 }
+
 @media all and (max-width: 480px) {
     .timeline {
         flex-direction: column;
