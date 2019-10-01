@@ -83,6 +83,7 @@ export default class Calendar extends React.Component {
                     //get the returned id from the db and add it to the meal object
                     //and send it to the addMeal function to add it to the state
                     newMeal.id = data.id;
+                    newMeal.i = 0;
                     this.saveRecipe({
                         name: data.name,
                         details: data.details,
@@ -116,6 +117,9 @@ export default class Calendar extends React.Component {
                     return res.json()
                 })
                 .then(data => {
+                    if (data.length === 0) {
+                        this.setState({ error: "No Match" })
+                    }
                     this.setState({ meals: data })
                 })
                 .catch(error => {

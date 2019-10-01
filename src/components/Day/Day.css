@@ -50,6 +50,7 @@ span{
 .meal-name {
     text-transform: capitalize;
     padding-right: 10px;
+    font-size: 0.9rem;
     display: block;
 }
 .calories{
