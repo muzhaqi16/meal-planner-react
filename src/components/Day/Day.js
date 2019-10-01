@@ -37,12 +37,13 @@ export default class Day extends React.Component {
     //when a meal is edited update the data in the db and in state
     handleEdit = (ev) => {
         ev.preventDefault();
-        const { food_name, meal_time, calories, date, dayIndex } = ev.target;
+        const { food_name, meal_time, calories, date, dayIndex, food_details } = ev.target;
         const newMeal = {
             id: this.state.id,
             "name": food_name.value,
             "date": date.value.slice(0, 10),
             "time": meal_time.value,
+            "details": food_details.value,
             "calories": Number(calories.value)
         }
         fetch(config.API_ENDPOINT + '/meal/' + this.state.id, {
