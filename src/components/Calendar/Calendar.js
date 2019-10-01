@@ -18,6 +18,7 @@ export default class Calendar extends React.Component {
             //keep track of when to show the add meal menu
             hidden: true,
             error: null,
+            info: null,
             recipeName: '',
             recipeDetails: '',
             recipeCalories: 0,
@@ -51,13 +52,13 @@ export default class Calendar extends React.Component {
                 if (!res.ok) {
                     res.json().then(error => Promise.reject(error))
                 }
-                this.setState({ "error": "Recipe saved" })
+                this.setState({ "info": "Recipe saved" })
             })
     }
     //Adds a meal to the database and to the state
     handleAdd = (ev) => {
         ev.preventDefault();
-        this.setState({ error: null })
+        this.setState({ error: null, info: null })
 
         const { food_name, meal_time, calories, date, food_details } = ev.target;
         //create the meal object from user input
@@ -151,7 +152,7 @@ export default class Calendar extends React.Component {
         this.setState({ recipeName: meal.name, recipeDetails: meal.details, recipeCalories: meal.calories, meals: [] })
     }
     render() {
-        const { error } = this.state;
+        const { error, info } = this.state;
         let searchResults = this.state.meals.map(meal =>
             <li key={meal.id} onClick={() => this.handleSelect(meal)}>{meal.name}</li>
         )
@@ -183,7 +184,9 @@ export default class Calendar extends React.Component {
                                     <TextInput type="number" label="Calories" id="calories" value={this.state.recipeCalories} onChange={ev => this.handleChange(ev)} />
                                     <FontAwesomeIcon role="button" className="search-icon" onClick={this.saveRecipe} icon={faSave} />
                                 </div>
-
+                                <div role='alert' className="info">
+                                    {info && <p className='green'>{info}</p>}
+                                </div>
                                 <TextInput label="Select Date" type="date" id="date" required={true} />
                                 <Select label="Time" options={['breakfast', 'lunch', 'dinner']} id="meal_time" />
 
