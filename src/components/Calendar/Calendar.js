@@ -167,7 +167,7 @@ export default class Calendar extends React.Component {
                                 </div>
                                 <div className="search-bar">
                                     <TextInput
-                                        label="Search or Add a recipe"
+                                        label="Add a recipe"
                                         onChange={ev => this.handleChange(ev)}
                                         placeholder="Enter recipe name..."
                                         id="food_name"
