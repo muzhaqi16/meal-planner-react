@@ -40,6 +40,10 @@ export default class Calendar extends React.Component {
             details: this.state.recipeDetails,
             calories: this.state.recipeCalories
         };
+        this.setState({ error: null, info: null })
+        if (this.state.recipeName === '') {
+            return this.setState({ error: "Enter a recipe name before saving it" })
+        }
         fetch(config.API_ENDPOINT + '/recipes', {
             method: 'POST',
             body: JSON.stringify(recipe),

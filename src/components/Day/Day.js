@@ -14,23 +14,32 @@ export default class Day extends React.Component {
     state = {
         edit: false,
         value: "",
-        show: false,
+        showInfo: false,
+        showEdit: false,
         mealName: ""
     }
     static contextType = PlannerContext;
     // show the modal and keep track of the previous data for the meal
-    showModal = (e, data = {}, index = 0) => {
-        data.i = index;
-        this.setState({
-            show: !this.state.show,
-            id: data.id,
-            oldData: data,
-        });
+    showModal = (e, modal, data = {}, index = 0) => {
+        if (modal === 'info') {
+            this.setState({
+                showInfo: !this.state.showInfo,
+                id: data.id,
+            })
+        } else {
+            data.i = index;
+            this.setState({
+                showEdit: !this.state.showEdit,
+                id: data.id,
+                oldData: data,
+            });
+        }
     };
     //close modal and remove the previous meal data
     closeModal = () => {
         this.setState({
-            show: !this.state.show,
+            showInfo: false,
+            showEdit: false,
             oldData: {}
         })
     }
@@ -99,10 +108,10 @@ export default class Day extends React.Component {
                 {this.props.data[time] &&
                     <span className="individual-meals">{this.props.data[time].map(((item, index) => {
                         // show the modal if the edit button has been clicked and the state has been updated
-                        if (this.state.show && this.state.id === item.id) {
-                            return <em key={item.id} className="meal-name">{item.name}
+                        if (this.state.showEdit && this.state.id === item.id) {
+                            return (<em key={item.id} className="meal-name">{item.name}
                                 <form onSubmit={this.handleEdit}>
-                                    <Modal key={item.id} onClose={this.closeModal} show={this.state.show} title="Edit">
+                                    <Modal key={item.id} onClose={this.closeModal} show={this.state.showEdit} title="Edit">
 
                                         <TextInput label="Select Date" type="date" id="date" defaultValue={item.date.slice(0, 10)} />
 
@@ -112,12 +121,21 @@ export default class Day extends React.Component {
 
                                         <TextInput label="Calories" id="calories" defaultValue={item.calories} />
                                         <input type="hidden" id="dayIndex" name="dayIndex" value={index} />
-                                    </Modal></form></em>
+                                    </Modal>
+                                </form>
+                            </em>)
                         }
-                        return (
-                            <em key={item.id} className="meal-name">{item.name} <strong className="calories">{item.calories} Cals</strong>
+                        if (this.state.showInfo && this.state.id === item.id) {
+                            return (<em key={item.id} className="meal-name">{item.name}
+                                <Modal key={item.id} onClose={this.closeModal} show={this.state.showInfo} hideButton="save" title="Info">
+                                    <p>{item.details}</p>
+                                </Modal></em>)
+                        }
 
-                                <FontAwesomeIcon icon={faPen} className="edit-meal" title="Edit" onClick={(e) => this.showModal(e, item, index)} />
+                        return (
+                            <em key={item.id} className="meal-name" onClick={(e) => this.showModal(e, 'info', item)}>{item.name} <strong className="calories">{item.calories} Cals</strong>
+
+                                <FontAwesomeIcon icon={faPen} className="edit-meal" title="Edit" onClick={(e) => this.showModal(e, 'edit', item, index)} />
 
                                 <FontAwesomeIcon icon={faTimes} title="Delete" className="delete-meal" onClick={() => { let r = window.confirm('Are you sure ? '); if (r) this.handleDelete(item.id, { date: this.props.data[time][index], i: index }) }} />
 

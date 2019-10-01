@@ -60,6 +60,7 @@ span {
     padding-right: 10px;
     font-size: 0.9rem;
     display: block;
+    cursor: pointer;
 }
 
 .calories {
