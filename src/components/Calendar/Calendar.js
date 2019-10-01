@@ -173,7 +173,7 @@ export default class Calendar extends React.Component {
                                         id="food_name"
                                         value={this.state.recipeName}
                                         required={true} />
-                                    <FontAwesomeIcon role="button" className="search-icon" onClick={this.handleSearch} icon={faSearch} />
+                                    <FontAwesomeIcon role="button" title="Search for matching recipes in your list" className="search-icon" onClick={this.handleSearch} icon={faSearch} />
                                 </div>
                                 <ul className="search-results">
                                     {searchResults}
@@ -181,7 +181,7 @@ export default class Calendar extends React.Component {
                                 <TextArea label="Details" value={this.state.recipeDetails} placeholder="Enter recipe details..." id="food_details" onChange={ev => this.handleChange(ev)} />
                                 <div className="search-bar">
                                     <TextInput type="number" label="Calories" id="calories" value={this.state.recipeCalories} onChange={ev => this.handleChange(ev)} />
-                                    <FontAwesomeIcon role="button" className="search-icon" onClick={this.saveRecipe} icon={faSave} />
+                                    <FontAwesomeIcon role="button" className="search-icon" title="Save this recipe to your list" onClick={this.saveRecipe} icon={faSave} />
                                 </div>
                                 <div role='alert' className="info">
                                     {info && <p className='green'>{info}</p>}
