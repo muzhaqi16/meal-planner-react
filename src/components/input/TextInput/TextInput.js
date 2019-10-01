@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import './TextInput.css'
 export default class TextInput extends React.Component {
     render() {
+        const options = {};
+        this.props.value !== undefined ? options["value"] = this.props.value : options["defaultValue"] = this.props.defaultValue;
+
         return (
             <div className="input">
                 <label htmlFor={this.props.inputId}>{this.props.label}</label>
@@ -10,10 +13,11 @@ export default class TextInput extends React.Component {
                     type={this.props.type}
                     placeholder={this.props.placeholder}
                     name={this.props.inputId}
-                    defaultValue={this.props.defaultValue}
                     id={this.props.id}
+                    {...options}
                     required={this.props.required}
                     onChange={this.props.onChange} />
+
             </div>
         )
     }

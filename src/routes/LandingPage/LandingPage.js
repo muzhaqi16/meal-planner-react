@@ -23,7 +23,7 @@ export default class LandingPage extends React.Component {
                             worry about what to cook
                         </p>
                         <footer>
-                            <a href="/planner"><Button text="Plan it now" /></a>
+                            <Button text="Plan it now" />
                         </footer>
                     </article>
                     <article>
@@ -34,7 +34,7 @@ export default class LandingPage extends React.Component {
                             Our app help you keep track of calories that you consume for each meal during the day
                     </p>
                         <footer>
-                            <a href="/planner"><Button text="Look it up" /></a>
+                            <Button text="Look it up" />
                         </footer>
                     </article>
                     <article>
@@ -46,7 +46,7 @@ export default class LandingPage extends React.Component {
                             calories
                     </p>
                         <footer>
-                            <a href="/planner"><Button text="Check it out" /></a>
+                            <Button text="Check it out" />
                         </footer>
                     </article>
                 </div>
