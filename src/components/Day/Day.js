@@ -7,6 +7,7 @@ import TokenService from '../../services/token-service'
 import PlannerContext from '../../PlannerContext';
 import Modal from "../Modal/Modal";
 import TextInput from '../input/TextInput/TextInput'
+import TextArea from '../input/TextArea/TextArea'
 import Select from '../input/Select/Select'
 import './Day.css'
 export default class Day extends React.Component {
@@ -105,7 +106,7 @@ export default class Day extends React.Component {
                                         <TextInput label="Select Date" type="date" id="date" defaultValue={item.date.slice(0, 10)} />
 
                                         <TextInput label="Food" id="food_name" autoFocus defaultValue={item.name} />
-
+                                        <TextArea label="Details" placeholder="Enter recipe details..." id="food_details" />
                                         <Select label="Time" options={['breakfast', 'lunch', 'dinner']} id="meal_time" defaultValue={item.time} />
 
                                         <TextInput label="Calories" id="calories" defaultValue={item.calories} />
