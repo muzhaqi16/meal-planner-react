@@ -5,7 +5,9 @@ export default class TextInput extends React.Component {
     render() {
         const options = {};
         this.props.value !== undefined ? options["value"] = this.props.value : options["defaultValue"] = this.props.defaultValue;
-
+        if (this.props.min) {
+            options['min'] = this.props.min
+        }
         return (
             <div className="input">
                 <label htmlFor={this.props.inputId}>{this.props.label}</label>

@@ -119,7 +119,7 @@ export default class Day extends React.Component {
                                         <TextArea label="Details" placeholder="Enter recipe details..." defaultValue={item.details} id="food_details" />
                                         <Select label="Time" options={['breakfast', 'lunch', 'dinner']} id="meal_time" defaultValue={item.time} />
 
-                                        <TextInput label="Calories" id="calories" defaultValue={item.calories} />
+                                        <TextInput type="number" label="Calories" min='0' id="calories" defaultValue={item.calories} />
                                         <input type="hidden" id="dayIndex" name="dayIndex" value={index} />
                                     </Modal>
                                 </form>

@@ -184,7 +184,7 @@ export default class Calendar extends React.Component {
                                 </ul>
                                 <TextArea label="Details" value={this.state.recipeDetails} placeholder="Enter recipe details..." id="food_details" onChange={ev => this.handleChange(ev)} />
                                 <div className="search-bar">
-                                    <TextInput type="number" label="Calories" id="calories" value={this.state.recipeCalories} onChange={ev => this.handleChange(ev)} />
+                                    <TextInput type="number" label="Calories" min='0' id="calories" value={this.state.recipeCalories} onChange={ev => this.handleChange(ev)} />
                                     <FontAwesomeIcon role="button" className="search-icon" title="Save this recipe to your list" onClick={this.saveRecipe} icon={faSave} />
                                 </div>
                                 <div role='alert' className="info">
