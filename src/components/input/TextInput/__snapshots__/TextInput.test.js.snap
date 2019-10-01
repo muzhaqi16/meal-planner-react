@@ -12,6 +12,7 @@ exports[`TextInput Component renders the UI as expected 1`] = `
     id="defaultInput"
     onChange={[Function]}
     placeholder=""
+    required={false}
     type="text"
   />
 </div>

@@ -1,18 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TextInput Component renders the UI as expected 1`] = `
+exports[`TextArea Component renders the UI as expected 1`] = `
 <div
   className="input"
 >
   <label>
     Label
   </label>
-  <input
+  <textarea
     defaultValue=""
     id="defaultInput"
     onChange={[Function]}
     placeholder=""
-    type="text"
+    required={false}
   />
 </div>
 `;
