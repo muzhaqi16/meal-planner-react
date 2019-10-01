@@ -121,7 +121,7 @@ export default class Calendar extends React.Component {
                 })
                 .then(data => {
                     if (data.length === 0) {
-                        this.setState({ error: "No Match" })
+                        this.setState({ error: "No matching recipes found in your list" })
                     }
                     this.setState({ meals: data })
                 })
