@@ -16,7 +16,7 @@ export default class Calendar extends React.Component {
         super(props);
         this.state = {
             //keep track of when to show the add meal menu
-            hidden: false,
+            hidden: true,
             error: null,
             recipeName: '',
             recipeDetails: '',
