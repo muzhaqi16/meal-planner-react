@@ -13,6 +13,7 @@
   left: 0;
   right: 0;
   top: 12%;
+  cursor: default;
 }
 .modal.off {
   opacity: 0;
