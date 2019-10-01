@@ -150,7 +150,6 @@ export default class Planner extends React.Component {
         this.setState({
             data: stateCopy
         })
-        console.log(data)
     }
     render() {
         const contextValue = {

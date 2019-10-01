@@ -49,8 +49,9 @@ export default class Calendar extends React.Component {
         })
             .then(res => {
                 if (!res.ok) {
-                    return res.json().then(error => Promise.reject(error))
+                    res.json().then(error => Promise.reject(error))
                 }
+                this.setState({ "error": "Recipe saved" })
             })
     }
     //Adds a meal to the database and to the state
