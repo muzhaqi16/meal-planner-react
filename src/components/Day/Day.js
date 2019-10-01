@@ -106,7 +106,7 @@ export default class Day extends React.Component {
                                         <TextInput label="Select Date" type="date" id="date" defaultValue={item.date.slice(0, 10)} />
 
                                         <TextInput label="Food" id="food_name" autoFocus defaultValue={item.name} />
-                                        <TextArea label="Details" placeholder="Enter recipe details..." id="food_details" />
+                                        <TextArea label="Details" placeholder="Enter recipe details..." defaultValue={item.details} id="food_details" />
                                         <Select label="Time" options={['breakfast', 'lunch', 'dinner']} id="meal_time" defaultValue={item.time} />
 
                                         <TextInput label="Calories" id="calories" defaultValue={item.calories} />

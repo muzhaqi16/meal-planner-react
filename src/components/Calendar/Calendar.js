@@ -79,6 +79,7 @@ export default class Calendar extends React.Component {
                 }
             })
                 .then(res => {
+                    console.log(res)
                     if (!res.ok) {
                         return res.json().then(error => Promise.reject(error))
                     }
