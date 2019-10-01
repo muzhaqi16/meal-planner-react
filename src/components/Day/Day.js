@@ -128,7 +128,7 @@ export default class Day extends React.Component {
                         if (this.state.showInfo && this.state.id === item.id) {
                             return (<em key={item.id} className="meal-name">{item.name}
                                 <Modal key={item.id} onClose={this.closeModal} show={this.state.showInfo} hideButton="save" title="Info">
-                                    <p>{item.details}</p>
+                                    {item.details !== '' ? "You didn't enter any info for this recipe" : <p>{item.details}</p>}
                                 </Modal></em>)
                         }
 
