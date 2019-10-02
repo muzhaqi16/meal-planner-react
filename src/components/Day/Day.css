@@ -129,5 +129,6 @@ span {
     .lunch,
     .dinner {
         display: inline-block;
+        min-width: 85px;
     }
 }
