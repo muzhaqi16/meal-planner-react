@@ -76,7 +76,12 @@ export default class Day extends React.Component {
         newMeal.i = dayIndex.value;
         this.context.editMeal(newMeal, this.state.oldData);
         //hide the modal
-        this.setState({ edit: false, show: !this.state.show, oldData: {} })
+        this.setState({
+            edit: false,
+            showInfo: false,
+            showEdit: false,
+            oldData: {}
+        })
     }
     //delete a meal from the database and update state
     handleDelete = (id, data) => {
