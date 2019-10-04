@@ -5,6 +5,7 @@ This is an app that helps you with your weekly meal planning and enables you to 
 ## Demo
 
 - [Live Demo](https://meal-planner.now.sh/)
+- [Api Code](https://github.com/muzhaqi16/meal-planner-api)
 
 ## Screenshots
 Landing Page:
